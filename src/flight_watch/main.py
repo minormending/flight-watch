@@ -30,6 +30,9 @@ def configure_logging(level_name: str, log_file: Path) -> None:
     rotating.setFormatter(formatter)
     root.addHandler(rotating)
 
+    # fast-flights' HTTP layer logs every request at INFO; one line per date is noise.
+    logging.getLogger("primp").setLevel(logging.WARNING)
+
 
 logger = logging.getLogger("flight_watch")
 
@@ -64,7 +67,8 @@ def cmd_report(cfg: AppConfig, args: argparse.Namespace) -> int:
     print(f"Alert threshold (p{cfg.alert.percentile:g}): ${summary['threshold']}\n")
 
     print("Cheapest departure dates seen recently:")
-    for row in data["by_date"][: args.top]:
+    cheapest = sorted(data["by_date"], key=lambda r: r["price"])
+    for row in cheapest[: args.top]:
         print(f"  {row['depart']} -> {row['ret']}   ${row['price']:<6} {row['airlines']}")
 
     if data["alerts"]:

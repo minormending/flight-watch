@@ -1,0 +1,5 @@
+{
+  "route": {"origin": "NYC", "destination": "SJU", "stay_nights": 4, "percentile": 20, "baseline_days": 30},
+  "summary": {"observations": 0, "span_days": 0.0, "all_time_low": null, "median": null, "threshold": null, "best_now": null, "booking_url": null, "last_scan": null},
+  "by_date": [], "history": [], "alerts": [], "scans": []
+}

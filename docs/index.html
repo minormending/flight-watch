@@ -78,10 +78,12 @@
   }
   a.book:hover { text-decoration: underline; }
 
-  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1px;
-          background: var(--border); border: 1px solid var(--border); border-radius: 10px;
-          overflow: hidden; margin-bottom: 16px; }
-  .kpi { background: var(--surface-1); padding: 14px 16px; }
+  /* Real gaps rather than the gap-as-hairline trick: an unfilled row would
+     otherwise paint leftover cells in the border colour. */
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+          gap: 10px; margin-bottom: 16px; }
+  .kpi { background: var(--surface-1); border: 1px solid var(--border);
+         border-radius: 10px; padding: 14px 16px; }
   .kpi .k { font-size: 11px; color: var(--text-muted); text-transform: uppercase;
             letter-spacing: 0.045em; font-weight: 600; }
   .kpi .v { font-size: 22px; font-weight: 600; margin-top: 3px;

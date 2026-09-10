@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "flight-watch"
+version = "0.1.0"
+description = "Watch Google Flights for cheap flexible-date trips and alert when the price is unusually low."
+authors = ["Kevin Ramdath <54426030+minormending@users.noreply.github.com>"]
+readme = "README.md"
+package-mode = true
+packages = [{ include = "flight_watch", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fast-flights = "^3.1.0"
+# fast-flights 3.1.0 imports typing_extensions but does not declare it.
+typing-extensions = "^4.12"
+python-dotenv = "^1.0.1"
+requests = "^2.32.3"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.0"
+black = "^25.12.0"
+
+[tool.poetry.scripts]
+flight-watch = "flight_watch.main:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

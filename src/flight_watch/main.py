@@ -61,15 +61,23 @@ def cmd_report(cfg: AppConfig, args: argparse.Namespace) -> int:
         return 1
 
     summary = data["summary"]
-    print(f"\n{cfg.route.origin} -> {cfg.route.destination}, {cfg.route.stay_nights} nights")
-    print(f"Observations: {summary['observations']} over {summary['span_days']:.1f} days")
-    print(f"Cheapest ever: ${summary['all_time_low']}   Typical (p50): ${summary['median']}")
+    print(
+        f"\n{cfg.route.origin} -> {cfg.route.destination}, {cfg.route.stay_nights} nights"
+    )
+    print(
+        f"Observations: {summary['observations']} over {summary['span_days']:.1f} days"
+    )
+    print(
+        f"Cheapest ever: ${summary['all_time_low']}   Typical (p50): ${summary['median']}"
+    )
     print(f"Alert threshold (p{cfg.alert.percentile:g}): ${summary['threshold']}\n")
 
     print("Cheapest departure dates seen recently:")
     cheapest = sorted(data["by_date"], key=lambda r: r["price"])
     for row in cheapest[: args.top]:
-        print(f"  {row['depart']} -> {row['ret']}   ${row['price']:<6} {row['airlines']}")
+        print(
+            f"  {row['depart']} -> {row['ret']}   ${row['price']:<6} {row['airlines']}"
+        )
 
     if data["alerts"]:
         print("\nRecent alerts:")
@@ -110,7 +118,9 @@ def build_parser() -> argparse.ArgumentParser:
     sub = parser.add_subparsers(dest="command", required=True)
 
     scan = sub.add_parser("scan", help="Sweep the date window and alert if cheap")
-    scan.add_argument("--limit", type=int, help="Only check the first N dates (testing)")
+    scan.add_argument(
+        "--limit", type=int, help="Only check the first N dates (testing)"
+    )
     scan.add_argument("--dry-run", action="store_true", help="Never send notifications")
     scan.add_argument("--export", metavar="DIR", help="Also refresh the dashboard here")
     scan.set_defaults(func=cmd_scan)
@@ -120,7 +130,9 @@ def build_parser() -> argparse.ArgumentParser:
     report.set_defaults(func=cmd_report)
 
     export = sub.add_parser("export", help="Write the dashboard data file")
-    export.add_argument("--out", default="docs", help="Output directory (default: docs)")
+    export.add_argument(
+        "--out", default="docs", help="Output directory (default: docs)"
+    )
     export.set_defaults(func=cmd_export)
 
     test = sub.add_parser("notify-test", help="Send a test notification")

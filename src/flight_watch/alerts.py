@@ -112,9 +112,11 @@ def render_alert(
     stops = (
         "nonstop"
         if quote.stops == 0
-        else f"{quote.stops} stop{'s' if (quote.stops or 0) > 1 else ''}"
-        if quote.stops is not None
-        else "unknown routing"
+        else (
+            f"{quote.stops} stop{'s' if (quote.stops or 0) > 1 else ''}"
+            if quote.stops is not None
+            else "unknown routing"
+        )
     )
     duration = (
         f"{quote.duration_minutes // 60}h {quote.duration_minutes % 60}m"

@@ -98,7 +98,9 @@ def load_config() -> AppConfig:
         window_end_days=int(_env("FW_WINDOW_END_DAYS", "180")),
     )
     if route.window_end_days <= route.window_start_days:
-        raise RuntimeError("FW_WINDOW_END_DAYS must be greater than FW_WINDOW_START_DAYS")
+        raise RuntimeError(
+            "FW_WINDOW_END_DAYS must be greater than FW_WINDOW_START_DAYS"
+        )
 
     ceiling = _opt("FW_PRICE_CEILING")
 

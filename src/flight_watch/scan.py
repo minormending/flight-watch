@@ -63,7 +63,9 @@ def collect(
         try:
             quote = source.fetch(trip)
         except KeyboardInterrupt:
-            logger.warning("Interrupted after %d/%d dates; keeping what we have", index, len(trips))
+            logger.warning(
+                "Interrupted after %d/%d dates; keeping what we have", index, len(trips)
+            )
             break
         except Exception as exc:  # noqa: BLE001
             logger.warning("%s raised %s", trip.depart, exc)
@@ -127,13 +129,21 @@ def run_scan(
             best.return_date,
             best.airlines or "unknown",
         )
-        logger.info("Alert decision: %s (%s)", "FIRE" if decision.fire else "hold", decision.reason)
+        logger.info(
+            "Alert decision: %s (%s)",
+            "FIRE" if decision.fire else "hold",
+            decision.reason,
+        )
 
         if decision.fire and not dry_run:
             title, body = render_alert(best, decision, cfg.route)
             result.delivered = notify(cfg.notify, title, body)
             record_alert(
-                conn, best, decision.threshold or 0, decision.pool_size, result.delivered
+                conn,
+                best,
+                decision.threshold or 0,
+                decision.pool_size,
+                result.delivered,
             )
         elif decision.fire and dry_run:
             logger.info("Dry run: alert suppressed")

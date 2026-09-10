@@ -57,7 +57,9 @@ def seed(conn, prices, days_ago=1):
     stamp = (datetime.now(timezone.utc) - timedelta(days=days_ago)).isoformat(
         timespec="seconds"
     )
-    conn.execute("UPDATE observations SET checked_at = ? WHERE scan_id = ?", (stamp, scan_id))
+    conn.execute(
+        "UPDATE observations SET checked_at = ? WHERE scan_id = ?", (stamp, scan_id)
+    )
 
 
 def test_percentile_interpolates():

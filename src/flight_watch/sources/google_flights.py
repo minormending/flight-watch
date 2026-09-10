@@ -82,7 +82,9 @@ class GoogleFlightsSource:
             logger.debug("%s returned no priced itineraries", trip.depart)
             return None
 
-        logger.warning("%s failed after %d attempts: %s", trip.depart, self.max_retries, last_error)
+        logger.warning(
+            "%s failed after %d attempts: %s", trip.depart, self.max_retries, last_error
+        )
         return None
 
     def _cheapest(self, results, trip: TripDates) -> Quote | None:
@@ -100,7 +102,9 @@ class GoogleFlightsSource:
 
         legs = list(getattr(best, "flights", []) or [])
         durations = [
-            leg.duration for leg in legs if isinstance(getattr(leg, "duration", None), int)
+            leg.duration
+            for leg in legs
+            if isinstance(getattr(leg, "duration", None), int)
         ]
 
         return Quote(

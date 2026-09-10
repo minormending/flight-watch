@@ -55,6 +55,7 @@ def quote(price: int, depart: str = "2026-11-01") -> Quote:
         airlines="JetBlue",
         stops=0,
         duration_minutes=235,
+        booking_url="https://www.google.com/travel/flights/search?tfs=TEST",
     )
 
 
@@ -232,3 +233,30 @@ def test_legacy_rows_are_migrated_and_excluded(tmp_path):
         assert baseline_prices(c, SEARCH.signature, 30) == []
     finally:
         c.close()
+
+
+def test_booking_url_is_a_real_deep_link():
+    """A ?q= natural-language URL silently loses the party and cabin.
+
+    Google drops it and lands on a blank 1-adult economy search, so the link
+    must be the protobuf tfs form built from the same query used to fetch.
+    """
+    from flight_watch.models import TripDates
+    from flight_watch.sources import build_source
+
+    search = make_search()
+    source = build_source("google-flights", search)
+    url = source._query(
+        TripDates(depart=date(2026, 10, 2), ret=date(2026, 10, 6))
+    ).url()
+
+    assert "tfs=" in url and "?q=" not in url
+    assert url.startswith("https://www.google.com/travel/flights")
+
+    # The same search must round-trip to the same link, and a different party
+    # or cabin must produce a different one.
+    other = build_source("google-flights", make_search(adults=1, children=0))
+    other_url = other._query(
+        TripDates(depart=date(2026, 10, 2), ret=date(2026, 10, 6))
+    ).url()
+    assert url != other_url

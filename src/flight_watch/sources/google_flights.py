@@ -121,6 +121,7 @@ class GoogleFlightsSource:
         ]
 
         return Quote(
+            booking_url=self._query(trip).url(),
             depart_date=trip.depart.isoformat(),
             return_date=trip.ret.isoformat(),
             price=int(best.price),

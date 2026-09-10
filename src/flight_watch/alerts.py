@@ -139,7 +139,7 @@ def render_alert(
             decision.reason,
             f"(baseline: {decision.pool_size} observations)",
             "",
-            quote.booking_url(search.origin, search.destination),
+            quote.booking_url,
             "",
             "Southwest never appears in Google Flights -- worth a separate check.",
         ]

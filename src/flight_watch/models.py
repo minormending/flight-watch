@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from datetime import date, timedelta
-from urllib.parse import quote
 
 
 @dataclass(frozen=True)
@@ -33,28 +32,14 @@ class Quote:
     stops: int | None
     duration_minutes: int | None
 
-    def booking_url(
-        self,
-        origin: str,
-        destination: str,
-        party_label: str | None = None,
-        cabin: str | None = None,
-    ) -> str:
-        """A Google Flights URL a human can open to actually book this.
+    booking_url: str = ""
+    """Google Flights deep link for exactly this search.
 
-        Google parses this natural-language form, so the party and cabin have
-        to be spelled out or the link lands on a 1-adult economy search that
-        does not match the price in the alert.
-        """
-        q = (
-            f"Flights from {origin} to {destination} "
-            f"on {self.depart_date} through {self.return_date}"
-        )
-        if party_label:
-            q += f" for {party_label}"
-        if cabin:
-            q += f" in {cabin}"
-        return f"https://www.google.com/travel/flights?q={quote(q)}"
+    Built by the source from the same protobuf `tfs` parameter used to fetch
+    the price, so the link opens the identical party, cabin and bag filters.
+    A natural-language `?q=` URL does NOT work -- Google silently drops it and
+    lands on a blank 1-adult economy search.
+    """
 
 
 def trip_window(

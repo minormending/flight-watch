@@ -36,7 +36,8 @@ CREATE TABLE IF NOT EXISTS observations (
     airlines         TEXT,
     stops            INTEGER,
     duration_minutes INTEGER,
-    source           TEXT    NOT NULL
+    source           TEXT    NOT NULL,
+    booking_url      TEXT    NOT NULL DEFAULT ''
 );
 
 CREATE INDEX IF NOT EXISTS idx_obs_sig_time
@@ -75,6 +76,12 @@ def _migrate(conn: sqlite3.Connection) -> None:
             conn.execute(
                 f"ALTER TABLE {table} ADD COLUMN signature TEXT NOT NULL DEFAULT 'legacy'"
             )
+
+    columns = {r["name"] for r in conn.execute("PRAGMA table_info(observations)")}
+    if columns and "booking_url" not in columns:
+        conn.execute(
+            "ALTER TABLE observations ADD COLUMN booking_url TEXT NOT NULL DEFAULT ''"
+        )
 
 
 def connect(db_file: Path) -> sqlite3.Connection:
@@ -152,13 +159,15 @@ def record_quotes(
             q.stops,
             q.duration_minutes,
             source,
+            q.booking_url,
         )
         for q in quotes
     ]
     conn.executemany(
         "INSERT INTO observations (scan_id, checked_at, origin, destination, depart_date,"
-        " return_date, signature, price, currency, airlines, stops, duration_minutes, source)"
-        " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        " return_date, signature, price, currency, airlines, stops, duration_minutes,"
+        " source, booking_url)"
+        " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
         rows,
     )
     return len(rows)

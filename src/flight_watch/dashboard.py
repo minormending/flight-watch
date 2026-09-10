@@ -8,7 +8,6 @@ from typing import Any
 
 from .alerts import percentile
 from .config import AppConfig
-from .models import Quote
 from .storage import baseline_prices, history_span_days, session
 
 logger = logging.getLogger(__name__)
@@ -24,7 +23,8 @@ def _latest_per_departure(
     """
     rows = conn.execute(
         """
-        SELECT o.depart_date, o.return_date, o.price, o.airlines, o.stops, o.checked_at
+        SELECT o.depart_date, o.return_date, o.price, o.airlines, o.stops,
+               o.checked_at, o.booking_url
         FROM observations o
         JOIN (
             SELECT depart_date, MAX(checked_at) AS latest
@@ -47,6 +47,7 @@ def _latest_per_departure(
             "airlines": r["airlines"] or "",
             "stops": r["stops"],
             "checked_at": r["checked_at"],
+            "booking_url": r["booking_url"],
         }
         for r in rows
     ]
@@ -105,19 +106,7 @@ def build_payload(conn: sqlite3.Connection, cfg: AppConfig) -> dict[str, Any]:
         ).fetchall()
     ]
 
-    booking_url = None
-    if best:
-        booking_url = Quote(
-            depart_date=best["depart"],
-            return_date=best["ret"],
-            price=best["price"],
-            currency="USD",
-            airlines=best["airlines"],
-            stops=best["stops"],
-            duration_minutes=None,
-        ).booking_url(
-            origin, destination, search.party_label, search.seat_class.replace("-", " ")
-        )
+    booking_url = best["booking_url"] if best else None
 
     return {
         "route": {

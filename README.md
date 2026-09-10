@@ -171,6 +171,10 @@ scan; it's off by default so you opt into publishing deliberately.
 - For a round trip, Google prices *outbound* options at the full round-trip
   total, so the recorded price is the whole trip. The airline and duration
   recorded are the outbound leg's.
+- **Alert links are protobuf `tfs` deep links**, built from the same query used
+  to fetch the price. Do not "simplify" them to a `?q=Flights from...` URL:
+  Google silently ignores that form and lands on a blank 1-adult economy
+  search, so the link would disagree with the price in the alert.
 
 If the scraper becomes unreliable, `src/flight_watch/sources/` has a
 `PriceSource` protocol and a stubbed SerpApi backend. Note that SerpApi's Google

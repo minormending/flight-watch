@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from datetime import date, datetime, timedelta, timezone
 
 import pytest
@@ -21,9 +22,10 @@ def make_search(**overrides) -> SearchConfig:
         children=1,
         infants_in_seat=0,
         infants_on_lap=0,
-        seat_class="premium-economy",
+        seat_class="economy",
         carry_on_bags=1,
         checked_bags=0,
+        exclude_basic_economy=True,
     )
     base.update(overrides)
     return SearchConfig(**base)
@@ -153,7 +155,8 @@ def test_no_quotes_is_not_an_alert(conn):
 def test_signature_changes_with_party_and_cabin():
     base = make_search()
     assert base.signature != make_search(adults=1, children=0).signature
-    assert base.signature != make_search(seat_class="economy").signature
+    assert base.signature != make_search(seat_class="premium-economy").signature
+    assert base.signature != make_search(exclude_basic_economy=False).signature
     assert base.signature != make_search(carry_on_bags=0).signature
     assert base.signature != make_search(stay_nights=7).signature
     # The scan window only picks which dates get sampled; prices stay comparable.
@@ -260,3 +263,67 @@ def test_booking_url_is_a_real_deep_link():
         TripDates(depart=date(2026, 10, 2), ret=date(2026, 10, 6))
     ).url()
     assert url != other_url
+
+
+def test_both_result_lists_are_parsed(monkeypatch):
+    """Google sends two lists; reading only the second misses the cheap fares.
+
+    payload[2][0] is "Top departing flights" and payload[3][0] is "Other
+    departing flights". fast_flights.get_flights() reads only [3], which made
+    this watcher report $1,211 when $1,001 was on the page.
+    """
+    from flight_watch.sources import google_flights as gf
+
+    payload = [None] * 8
+    payload[2] = [["TOP-A", "TOP-B"]]
+    payload[3] = [["OTHER-A"]]
+    payload[7] = [None, [[], []]]
+
+    monkeypatch.setattr(
+        gf,
+        "fetch_flights_html",
+        lambda q: '<script class="ds:1">AF_initDataCallback({data:'
+        + json.dumps(payload)
+        + ", sideChannel: {}})</script>",
+    )
+
+    seen = {}
+
+    def fake_parse_js(js):
+        raw = js.split("data:", 1)[1].rsplit(",", 1)[0]
+        seen["payload"] = json.loads(raw)
+        return []
+
+    monkeypatch.setattr(gf, "parse_js", fake_parse_js)
+
+    source = gf.GoogleFlightsSource(origin="NYC", destination="SJU")
+    source._fetch_all(object())
+
+    assert seen["payload"][3][0] == ["TOP-A", "TOP-B", "OTHER-A"]
+
+
+def test_missing_top_list_is_tolerated(monkeypatch):
+    """Some responses carry only one list; that must not crash the scan."""
+    from flight_watch.sources import google_flights as gf
+
+    payload = [None] * 8
+    payload[2] = None
+    payload[3] = [["ONLY-A"]]
+
+    monkeypatch.setattr(
+        gf,
+        "fetch_flights_html",
+        lambda q: '<script class="ds:1">AF_initDataCallback({data:'
+        + json.dumps(payload)
+        + ", sideChannel: {}})</script>",
+    )
+    seen = {}
+
+    def fake_parse_js(js):
+        seen["payload"] = json.loads(js.split("data:", 1)[1].rsplit(",", 1)[0])
+        return []
+
+    monkeypatch.setattr(gf, "parse_js", fake_parse_js)
+
+    gf.GoogleFlightsSource(origin="NYC", destination="SJU")._fetch_all(object())
+    assert seen["payload"][3][0] == ["ONLY-A"]

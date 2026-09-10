@@ -36,6 +36,12 @@ class SearchConfig:
     seat_class: str
     carry_on_bags: int
     checked_bags: int
+    exclude_basic_economy: bool
+
+    @property
+    def cabin_label(self) -> str:
+        cabin = self.seat_class.replace("-", " ")
+        return f"{cabin} (excl. Basic)" if self.exclude_basic_economy else cabin
 
     @property
     def party_size(self) -> int:
@@ -70,6 +76,7 @@ class SearchConfig:
             f":{self.adults}a{self.children}c"
             f"{self.infants_in_seat}is{self.infants_on_lap}il"
             f":{self.seat_class}"
+            f"{'-nobasic' if self.exclude_basic_economy else ''}"
             f":carry{self.carry_on_bags}:checked{self.checked_bags}"
         )
 
@@ -145,7 +152,7 @@ def _path(name: str, fallback: Path) -> Path:
 
 
 def load_config() -> AppConfig:
-    seat_class = _env("FW_SEAT_CLASS", "premium-economy").strip().lower()
+    seat_class = _env("FW_SEAT_CLASS", "economy").strip().lower()
     if seat_class not in SEAT_CLASSES:
         raise RuntimeError(
             f"FW_SEAT_CLASS must be one of {', '.join(SEAT_CLASSES)}; got {seat_class!r}"
@@ -164,6 +171,8 @@ def load_config() -> AppConfig:
         seat_class=seat_class,
         carry_on_bags=int(_env("FW_CARRY_ON_BAGS", "1")),
         checked_bags=int(_env("FW_CHECKED_BAGS", "0")),
+        exclude_basic_economy=_env("FW_EXCLUDE_BASIC_ECONOMY", "true").lower()
+        in ("1", "true", "yes", "on"),
     )
     if search.window_end_days <= search.window_start_days:
         raise RuntimeError(

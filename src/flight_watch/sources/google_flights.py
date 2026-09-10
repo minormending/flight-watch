@@ -4,7 +4,11 @@ import logging
 import random
 import time
 
-from fast_flights import FlightQuery, Passengers, create_query, get_flights
+import json
+
+from fast_flights import FlightQuery, Passengers, create_query, fetch_flights_html
+from fast_flights.parser import parse_js
+from selectolax.lexbor import LexborHTMLParser
 
 from ..models import Quote, TripDates
 
@@ -30,6 +34,7 @@ class GoogleFlightsSource:
         seat_class: str = "economy",
         carry_on_bags: int = 0,
         checked_bags: int = 0,
+        exclude_basic_economy: bool = False,
         currency: str = "USD",
         max_retries: int = 3,
     ) -> None:
@@ -39,6 +44,7 @@ class GoogleFlightsSource:
         self.seat_class = seat_class
         self.carry_on_bags = carry_on_bags
         self.checked_bags = checked_bags
+        self.exclude_basic_economy = exclude_basic_economy
         self.currency = currency
         self.max_retries = max_retries
 
@@ -64,16 +70,49 @@ class GoogleFlightsSource:
             # each, and larger values change nothing.
             carry_on_bags=self.carry_on_bags,
             checked_bags=self.checked_bags,
+            # Basic Economy has no carry-on, no seat selection and no changes,
+            # so for a family those fares are not really bookable.
+            exclude_basic_economy=self.exclude_basic_economy,
             currency=self.currency,
             language="en-US",
         )
+
+    def _fetch_all(self, query):
+        """Fetch a query and return BOTH result lists Google sends back.
+
+        Google's payload carries two: payload[2][0] is "Top departing
+        flights" -- where the cheapest fares actually live -- and
+        payload[3][0] is "Other departing flights". fast_flights.get_flights()
+        parses only the second, so a price watcher built on it systematically
+        misses the cheapest option. Measured on NYC->SJU for 3 passengers:
+        it reported $1,211 while $1,001 was on the page.
+
+        Rather than reimplement Google's index-based item format, we splice
+        both lists into the slot parse_js already knows how to read, so the
+        library keeps doing the fragile part.
+        """
+        html = fetch_flights_html(query)
+        script = LexborHTMLParser(html).css_first(r"script.ds\:1")
+        if script is None:
+            raise RuntimeError("no result payload in response")
+
+        raw = script.text().split("data:", 1)[1].rsplit(",", 1)[0]
+        payload = json.loads(raw)
+
+        def items(slot):
+            entry = payload[slot] if len(payload) > slot else None
+            return (entry[0] if entry else None) or []
+
+        merged = list(payload)
+        merged[3] = [items(2) + items(3)]
+        return parse_js("data:" + json.dumps(merged) + ",")
 
     def fetch(self, trip: TripDates) -> Quote | None:
         last_error: Exception | None = None
 
         for attempt in range(1, self.max_retries + 1):
             try:
-                results = get_flights(self._query(trip))
+                results = self._fetch_all(self._query(trip))
             except Exception as exc:  # noqa: BLE001 - scraper, anything can surface
                 last_error = exc
                 if attempt < self.max_retries:

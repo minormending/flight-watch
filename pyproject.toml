@@ -12,6 +12,8 @@ python = "^3.11"
 fast-flights = "^3.1.0"
 # fast-flights 3.1.0 imports typing_extensions but does not declare it.
 typing-extensions = "^4.12"
+# Used directly to re-parse Google's payload; see sources/google_flights.py.
+selectolax = "^0.3.21"
 python-dotenv = "^1.0.1"
 requests = "^2.32.3"
 

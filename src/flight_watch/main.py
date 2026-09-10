@@ -66,7 +66,7 @@ def cmd_report(cfg: AppConfig, args: argparse.Namespace) -> int:
         f" {cfg.search.stay_nights} nights"
     )
     print(
-        f"{cfg.search.party_label}, {cfg.search.seat_class.replace('-', ' ')},"
+        f"{cfg.search.party_label}, {cfg.search.cabin_label},"
         f" {cfg.search.carry_on_bags} carry-on each"
     )
     print(

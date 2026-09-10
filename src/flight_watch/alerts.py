@@ -124,14 +124,13 @@ def render_alert(
         else "unknown"
     )
     per_person = round(quote.price / search.party_size)
-    cabin = search.seat_class.replace("-", " ")
     body = "\n".join(
         [
             f"{search.origin} -> {search.destination}, {search.stay_nights} nights",
             f"Out {quote.depart_date}  /  Back {quote.return_date}",
             f"${quote.price} {quote.currency} total for {search.party_label}"
             f" (~${per_person} each)",
-            f"{cabin}, {search.carry_on_bags} carry-on each",
+            f"{search.cabin_label}, {search.carry_on_bags} carry-on each",
             "",
             f"Airline: {quote.airlines or 'unknown'}",
             f"Outbound: {stops}, {duration}",

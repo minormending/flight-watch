@@ -115,7 +115,7 @@ def build_payload(conn: sqlite3.Connection, cfg: AppConfig) -> dict[str, Any]:
             "stay_nights": search.stay_nights,
             "party_label": search.party_label,
             "party_size": search.party_size,
-            "cabin": search.seat_class.replace("-", " "),
+            "cabin": search.cabin_label,
             "carry_on_bags": search.carry_on_bags,
             "percentile": cfg.alert.percentile,
             "baseline_days": cfg.alert.baseline_days,

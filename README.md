@@ -4,8 +4,8 @@ Watches Google Flights for cheap **flexible-date** trips and pushes an alert whe
 the price is unusually low *for this route*, judged against its own history.
 
 Built for the case where you know how long you want to be somewhere but not when:
-"4 nights in San Juan for 2 adults and a child, premium economy, sometime in the
-next six months, tell me when it's cheap."
+"4 nights in San Juan for 2 adults and a child, sometime in the next six
+months, tell me when it's cheap."
 
 - **Source:** [`fast-flights`](https://github.com/AWeirdDev/flights) — free, no API
   key. It rebuilds the base64-protobuf `tfs` parameter Google Flights uses
@@ -137,7 +137,8 @@ scan; it's off by default so you opt into publishing deliberately.
 |---|---|---|
 | `FW_STAY_NIGHTS` | `4` | Nights at the destination |
 | `FW_ADULTS` / `FW_CHILDREN` | `2` / `1` | Who's flying |
-| `FW_SEAT_CLASS` | `premium-economy` | `economy`, `premium-economy`, `business`, `first` |
+| `FW_SEAT_CLASS` | `economy` | `economy`, `premium-economy`, `business`, `first` |
+| `FW_EXCLUDE_BASIC_ECONOMY` | `true` | Drop Basic Economy — no carry-on, no seat choice, no changes |
 | `FW_CARRY_ON_BAGS` | `1` | Carry-ons **per passenger** whose fees are priced in |
 | `FW_CHECKED_BAGS` | `0` | Checked bags per passenger |
 | `FW_WINDOW_START_DAYS` / `FW_WINDOW_END_DAYS` | `21` / `180` | How far ahead to look |
@@ -163,6 +164,18 @@ scan; it's off by default so you opt into publishing deliberately.
   A higher `failed` count in the scan log is expected, not necessarily a fault.
 - **Prices are indicative.** They're what Google showed at scan time; fares can
   vanish between the alert and your click.
+- **Google returns two result lists and the library only reads one.**
+  `payload[2][0]` is "Top departing flights" — where the cheapest fares live —
+  and `payload[3][0]` is "Other departing flights". `fast_flights.get_flights()`
+  parses only the second, so it reported $1,211 on NYC→SJU when $1,001 was on
+  the page. `GoogleFlightsSource._fetch_all` splices both lists into the slot
+  the library's parser reads. **Do not replace it with `get_flights()`** — the
+  scan would silently start missing every cheap fare. Covered by
+  `test_both_result_lists_are_parsed`.
+- **Premium economy parses badly on this route.** The scraper returned prices
+  Google's own UI contradicted (a claimed $1,319 against a stated cheapest of
+  $1,624). Economy, with or without Basic, matches the UI exactly. If you
+  switch cabins, re-verify against a `tfs` link before trusting the numbers.
 - **This is a scraper.** Google can change the response shape at any time and
   the scan will start returning nothing. `scan` exits non-zero and logs
   `Scan produced no quotes at all` when that happens — worth noticing.

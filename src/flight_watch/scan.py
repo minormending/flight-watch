@@ -54,7 +54,7 @@ def collect(
         cfg.search.destination,
         cfg.search.stay_nights,
         cfg.search.party_label,
-        cfg.search.seat_class,
+        cfg.search.cabin_label,
         source.name,
     )
 

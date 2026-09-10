@@ -1,5 +1,1325 @@
 {
-  "route": {"origin": "NYC", "destination": "SJU", "stay_nights": 4, "percentile": 20, "baseline_days": 30},
-  "summary": {"observations": 0, "span_days": 0.0, "all_time_low": null, "median": null, "threshold": null, "best_now": null, "booking_url": null, "last_scan": null},
-  "by_date": [], "history": [], "alerts": [], "scans": []
+  "route": {
+    "origin": "NYC",
+    "destination": "SJU",
+    "stay_nights": 4,
+    "percentile": 20.0,
+    "baseline_days": 30
+  },
+  "summary": {
+    "observations": 160,
+    "span_days": 0.0,
+    "all_time_low": 285,
+    "median": 358,
+    "threshold": 317,
+    "best_now": {
+      "depart": "2026-10-31",
+      "ret": "2026-11-04",
+      "price": 285,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    "booking_url": "https://www.google.com/travel/flights?q=Flights%20from%20NYC%20to%20SJU%20on%202026-10-31%20through%202026-11-04",
+    "last_scan": "2026-09-10T20:16:16+00:00"
+  },
+  "by_date": [
+    {
+      "depart": "2026-10-01",
+      "ret": "2026-10-05",
+      "price": 326,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-02",
+      "ret": "2026-10-06",
+      "price": 317,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-03",
+      "ret": "2026-10-07",
+      "price": 297,
+      "airlines": "JetBlue",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-04",
+      "ret": "2026-10-08",
+      "price": 317,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-05",
+      "ret": "2026-10-09",
+      "price": 297,
+      "airlines": "JetBlue",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-06",
+      "ret": "2026-10-10",
+      "price": 292,
+      "airlines": "JetBlue",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-07",
+      "ret": "2026-10-11",
+      "price": 317,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-08",
+      "ret": "2026-10-12",
+      "price": 418,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-09",
+      "ret": "2026-10-13",
+      "price": 334,
+      "airlines": "American",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-10",
+      "ret": "2026-10-14",
+      "price": 317,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-11",
+      "ret": "2026-10-15",
+      "price": 317,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-12",
+      "ret": "2026-10-16",
+      "price": 322,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-13",
+      "ret": "2026-10-17",
+      "price": 306,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-14",
+      "ret": "2026-10-18",
+      "price": 317,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-15",
+      "ret": "2026-10-19",
+      "price": 358,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-16",
+      "ret": "2026-10-20",
+      "price": 317,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-17",
+      "ret": "2026-10-21",
+      "price": 288,
+      "airlines": "JetBlue",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-18",
+      "ret": "2026-10-22",
+      "price": 317,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-19",
+      "ret": "2026-10-23",
+      "price": 317,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-20",
+      "ret": "2026-10-24",
+      "price": 297,
+      "airlines": "JetBlue",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-21",
+      "ret": "2026-10-25",
+      "price": 317,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-22",
+      "ret": "2026-10-26",
+      "price": 358,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-23",
+      "ret": "2026-10-27",
+      "price": 318,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-24",
+      "ret": "2026-10-28",
+      "price": 297,
+      "airlines": "JetBlue",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-25",
+      "ret": "2026-10-29",
+      "price": 317,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-26",
+      "ret": "2026-10-30",
+      "price": 297,
+      "airlines": "Delta",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-27",
+      "ret": "2026-10-31",
+      "price": 297,
+      "airlines": "JetBlue",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-28",
+      "ret": "2026-11-01",
+      "price": 312,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-29",
+      "ret": "2026-11-02",
+      "price": 317,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-30",
+      "ret": "2026-11-03",
+      "price": 317,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-10-31",
+      "ret": "2026-11-04",
+      "price": 285,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-01",
+      "ret": "2026-11-05",
+      "price": 346,
+      "airlines": "United",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-02",
+      "ret": "2026-11-06",
+      "price": 346,
+      "airlines": "United",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-03",
+      "ret": "2026-11-07",
+      "price": 347,
+      "airlines": "United",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-04",
+      "ret": "2026-11-08",
+      "price": 368,
+      "airlines": "United",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-05",
+      "ret": "2026-11-09",
+      "price": 358,
+      "airlines": "American",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-06",
+      "ret": "2026-11-10",
+      "price": 342,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-07",
+      "ret": "2026-11-11",
+      "price": 317,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-08",
+      "ret": "2026-11-12",
+      "price": 317,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-09",
+      "ret": "2026-11-13",
+      "price": 308,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-10",
+      "ret": "2026-11-14",
+      "price": 317,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-11",
+      "ret": "2026-11-15",
+      "price": 349,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-12",
+      "ret": "2026-11-16",
+      "price": 346,
+      "airlines": "United",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-13",
+      "ret": "2026-11-17",
+      "price": 317,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-14",
+      "ret": "2026-11-18",
+      "price": 317,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-15",
+      "ret": "2026-11-19",
+      "price": 330,
+      "airlines": "JetBlue",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-16",
+      "ret": "2026-11-20",
+      "price": 312,
+      "airlines": "JetBlue",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-17",
+      "ret": "2026-11-21",
+      "price": 325,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-18",
+      "ret": "2026-11-22",
+      "price": 336,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-19",
+      "ret": "2026-11-23",
+      "price": 349,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-20",
+      "ret": "2026-11-24",
+      "price": 383,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-21",
+      "ret": "2026-11-25",
+      "price": 374,
+      "airlines": "JetBlue",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-22",
+      "ret": "2026-11-26",
+      "price": 369,
+      "airlines": "JetBlue",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-23",
+      "ret": "2026-11-27",
+      "price": 349,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-24",
+      "ret": "2026-11-28",
+      "price": 660,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-25",
+      "ret": "2026-11-29",
+      "price": 711,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-26",
+      "ret": "2026-11-30",
+      "price": 415,
+      "airlines": "American",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-27",
+      "ret": "2026-12-01",
+      "price": 343,
+      "airlines": "American",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-28",
+      "ret": "2026-12-02",
+      "price": 333,
+      "airlines": "JetBlue",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-29",
+      "ret": "2026-12-03",
+      "price": 424,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-11-30",
+      "ret": "2026-12-04",
+      "price": 348,
+      "airlines": "American",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-01",
+      "ret": "2026-12-05",
+      "price": 309,
+      "airlines": "American",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-02",
+      "ret": "2026-12-06",
+      "price": 350,
+      "airlines": "JetBlue",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-03",
+      "ret": "2026-12-07",
+      "price": 328,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-04",
+      "ret": "2026-12-08",
+      "price": 322,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-05",
+      "ret": "2026-12-09",
+      "price": 333,
+      "airlines": "JetBlue",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-06",
+      "ret": "2026-12-10",
+      "price": 308,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-07",
+      "ret": "2026-12-11",
+      "price": 287,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-08",
+      "ret": "2026-12-12",
+      "price": 349,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-09",
+      "ret": "2026-12-13",
+      "price": 336,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-10",
+      "ret": "2026-12-14",
+      "price": 358,
+      "airlines": "American",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-11",
+      "ret": "2026-12-15",
+      "price": 311,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-12",
+      "ret": "2026-12-16",
+      "price": 320,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-13",
+      "ret": "2026-12-17",
+      "price": 337,
+      "airlines": "American",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-14",
+      "ret": "2026-12-18",
+      "price": 342,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-15",
+      "ret": "2026-12-19",
+      "price": 361,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-16",
+      "ret": "2026-12-20",
+      "price": 393,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-17",
+      "ret": "2026-12-21",
+      "price": 495,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-18",
+      "ret": "2026-12-22",
+      "price": 521,
+      "airlines": "JetBlue",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-19",
+      "ret": "2026-12-23",
+      "price": 630,
+      "airlines": "Delta",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-20",
+      "ret": "2026-12-24",
+      "price": 529,
+      "airlines": "JetBlue",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-21",
+      "ret": "2026-12-25",
+      "price": 547,
+      "airlines": "JetBlue",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-22",
+      "ret": "2026-12-26",
+      "price": 608,
+      "airlines": "Delta",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-23",
+      "ret": "2026-12-27",
+      "price": 711,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-24",
+      "ret": "2026-12-28",
+      "price": 667,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-25",
+      "ret": "2026-12-29",
+      "price": 711,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-26",
+      "ret": "2026-12-30",
+      "price": 779,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-27",
+      "ret": "2026-12-31",
+      "price": 708,
+      "airlines": "JetBlue",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-28",
+      "ret": "2027-01-01",
+      "price": 749,
+      "airlines": "Southwest",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-29",
+      "ret": "2027-01-02",
+      "price": 470,
+      "airlines": "American",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-30",
+      "ret": "2027-01-03",
+      "price": 729,
+      "airlines": "American",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2026-12-31",
+      "ret": "2027-01-04",
+      "price": 656,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-01",
+      "ret": "2027-01-05",
+      "price": 543,
+      "airlines": "American",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-02",
+      "ret": "2027-01-06",
+      "price": 507,
+      "airlines": "Frontier",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-03",
+      "ret": "2027-01-07",
+      "price": 442,
+      "airlines": "JetBlue",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-04",
+      "ret": "2027-01-08",
+      "price": 417,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-05",
+      "ret": "2027-01-09",
+      "price": 447,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-06",
+      "ret": "2027-01-10",
+      "price": 456,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-07",
+      "ret": "2027-01-11",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-08",
+      "ret": "2027-01-12",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-09",
+      "ret": "2027-01-13",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-10",
+      "ret": "2027-01-14",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-11",
+      "ret": "2027-01-15",
+      "price": 349,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-12",
+      "ret": "2027-01-16",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-13",
+      "ret": "2027-01-17",
+      "price": 388,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-14",
+      "ret": "2027-01-18",
+      "price": 526,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-15",
+      "ret": "2027-01-19",
+      "price": 445,
+      "airlines": "American",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-16",
+      "ret": "2027-01-20",
+      "price": 376,
+      "airlines": "United",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-17",
+      "ret": "2027-01-21",
+      "price": 349,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-18",
+      "ret": "2027-01-22",
+      "price": 349,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-19",
+      "ret": "2027-01-23",
+      "price": 349,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-20",
+      "ret": "2027-01-24",
+      "price": 408,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-21",
+      "ret": "2027-01-25",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-22",
+      "ret": "2027-01-26",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-23",
+      "ret": "2027-01-27",
+      "price": 354,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-24",
+      "ret": "2027-01-28",
+      "price": 354,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-25",
+      "ret": "2027-01-29",
+      "price": 349,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-26",
+      "ret": "2027-01-30",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-27",
+      "ret": "2027-01-31",
+      "price": 407,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-28",
+      "ret": "2027-02-01",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-29",
+      "ret": "2027-02-02",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-30",
+      "ret": "2027-02-03",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-01-31",
+      "ret": "2027-02-04",
+      "price": 349,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-01",
+      "ret": "2027-02-05",
+      "price": 349,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-02",
+      "ret": "2027-02-06",
+      "price": 349,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-03",
+      "ret": "2027-02-07",
+      "price": 368,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-04",
+      "ret": "2027-02-08",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-05",
+      "ret": "2027-02-09",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-06",
+      "ret": "2027-02-10",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-07",
+      "ret": "2027-02-11",
+      "price": 349,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-08",
+      "ret": "2027-02-12",
+      "price": 349,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-09",
+      "ret": "2027-02-13",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-10",
+      "ret": "2027-02-14",
+      "price": 417,
+      "airlines": "Frontier",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-11",
+      "ret": "2027-02-15",
+      "price": 595,
+      "airlines": "Southwest",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-12",
+      "ret": "2027-02-16",
+      "price": 487,
+      "airlines": "Southwest",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-13",
+      "ret": "2027-02-17",
+      "price": 457,
+      "airlines": "American",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-14",
+      "ret": "2027-02-18",
+      "price": 358,
+      "airlines": "American",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-15",
+      "ret": "2027-02-19",
+      "price": 370,
+      "airlines": "American",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-16",
+      "ret": "2027-02-20",
+      "price": 497,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-17",
+      "ret": "2027-02-21",
+      "price": 534,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-18",
+      "ret": "2027-02-22",
+      "price": 370,
+      "airlines": "American",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-19",
+      "ret": "2027-02-23",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-20",
+      "ret": "2027-02-24",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-21",
+      "ret": "2027-02-25",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-22",
+      "ret": "2027-02-26",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-23",
+      "ret": "2027-02-27",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-24",
+      "ret": "2027-02-28",
+      "price": 452,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-25",
+      "ret": "2027-03-01",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-26",
+      "ret": "2027-03-02",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-27",
+      "ret": "2027-03-03",
+      "price": 358,
+      "airlines": "American",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-02-28",
+      "ret": "2027-03-04",
+      "price": 349,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-03-01",
+      "ret": "2027-03-05",
+      "price": 349,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-03-02",
+      "ret": "2027-03-06",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-03-03",
+      "ret": "2027-03-07",
+      "price": 354,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-03-04",
+      "ret": "2027-03-08",
+      "price": 377,
+      "airlines": "Southwest",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-03-05",
+      "ret": "2027-03-09",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-03-06",
+      "ret": "2027-03-10",
+      "price": 358,
+      "airlines": "American",
+      "stops": 2,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-03-07",
+      "ret": "2027-03-11",
+      "price": 358,
+      "airlines": "American",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-03-08",
+      "ret": "2027-03-12",
+      "price": 349,
+      "airlines": "United",
+      "stops": 0,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    },
+    {
+      "depart": "2027-03-09",
+      "ret": "2027-03-13",
+      "price": 354,
+      "airlines": "United",
+      "stops": 1,
+      "checked_at": "2026-09-10T20:16:16+00:00"
+    }
+  ],
+  "history": [
+    {
+      "day": "2026-09-10",
+      "low": 285,
+      "mean": 387.5,
+      "n": 160
+    }
+  ],
+  "alerts": [],
+  "scans": [
+    {
+      "finished_at": "2026-09-10T20:16:16+00:00",
+      "ok": 160,
+      "failed": 0,
+      "best_price": 285
+    }
+  ]
 }

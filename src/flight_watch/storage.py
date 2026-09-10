@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS observations (
     destination      TEXT    NOT NULL,
     depart_date      TEXT    NOT NULL,
     return_date      TEXT    NOT NULL,
+    signature        TEXT    NOT NULL DEFAULT 'legacy',
     price            INTEGER NOT NULL,
     currency         TEXT    NOT NULL,
     airlines         TEXT,
@@ -38,14 +39,15 @@ CREATE TABLE IF NOT EXISTS observations (
     source           TEXT    NOT NULL
 );
 
-CREATE INDEX IF NOT EXISTS idx_obs_route_time
-    ON observations (origin, destination, checked_at);
+CREATE INDEX IF NOT EXISTS idx_obs_sig_time
+    ON observations (signature, checked_at);
 CREATE INDEX IF NOT EXISTS idx_obs_pair
     ON observations (origin, destination, depart_date, return_date);
 
 CREATE TABLE IF NOT EXISTS alerts (
     id          INTEGER PRIMARY KEY AUTOINCREMENT,
     fired_at    TEXT    NOT NULL,
+    signature   TEXT    NOT NULL DEFAULT 'legacy',
     depart_date TEXT    NOT NULL,
     return_date TEXT    NOT NULL,
     price       INTEGER NOT NULL,
@@ -60,10 +62,28 @@ def utcnow() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
+def _migrate(conn: sqlite3.Connection) -> None:
+    """Add the signature columns to databases created before they existed.
+
+    Pre-existing rows keep the 'legacy' default, so they are simply never
+    matched by a real signature and drop out of the baseline instead of
+    polluting it.
+    """
+    for table in ("observations", "alerts"):
+        columns = {r["name"] for r in conn.execute(f"PRAGMA table_info({table})")}
+        if columns and "signature" not in columns:
+            conn.execute(
+                f"ALTER TABLE {table} ADD COLUMN signature TEXT NOT NULL DEFAULT 'legacy'"
+            )
+
+
 def connect(db_file: Path) -> sqlite3.Connection:
     conn = sqlite3.connect(db_file)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
+    # Migrate before the schema script: it creates an index over `signature`,
+    # which an older database does not have a column for yet.
+    _migrate(conn)
     conn.executescript(SCHEMA)
     return conn
 
@@ -112,6 +132,7 @@ def record_quotes(
     scan_id: int,
     origin: str,
     destination: str,
+    signature: str,
     source: str,
     quotes: Iterable[Quote],
 ) -> int:
@@ -124,6 +145,7 @@ def record_quotes(
             destination,
             q.depart_date,
             q.return_date,
+            signature,
             q.price,
             q.currency,
             q.airlines,
@@ -135,8 +157,8 @@ def record_quotes(
     ]
     conn.executemany(
         "INSERT INTO observations (scan_id, checked_at, origin, destination, depart_date,"
-        " return_date, price, currency, airlines, stops, duration_minutes, source)"
-        " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        " return_date, signature, price, currency, airlines, stops, duration_minutes, source)"
+        " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
         rows,
     )
     return len(rows)
@@ -148,27 +170,25 @@ def _since(days: int) -> str:
     )
 
 
-def baseline_prices(
-    conn: sqlite3.Connection, origin: str, destination: str, days: int
-) -> list[int]:
-    """Every observed price on this route in the last `days` days.
+def baseline_prices(conn: sqlite3.Connection, signature: str, days: int) -> list[int]:
+    """Every price observed for this exact search in the last `days` days.
 
-    Route-level rather than per-date-pair: the trip has no fixed dates, so any
-    4-night trip is interchangeable and they all belong in the same pool.
+    Pooled across date pairs, because the trip has no fixed dates and any
+    stay of the right length is interchangeable -- but never across
+    signatures, since a different party or cabin is a different product.
     """
     rows = conn.execute(
-        "SELECT price FROM observations"
-        " WHERE origin = ? AND destination = ? AND checked_at >= ?",
-        (origin, destination, _since(days)),
+        "SELECT price FROM observations WHERE signature = ? AND checked_at >= ?",
+        (signature, _since(days)),
     ).fetchall()
     return [int(r["price"]) for r in rows]
 
 
-def history_span_days(conn: sqlite3.Connection, origin: str, destination: str) -> float:
+def history_span_days(conn: sqlite3.Connection, signature: str) -> float:
     row = conn.execute(
         "SELECT MIN(checked_at) AS lo, MAX(checked_at) AS hi FROM observations"
-        " WHERE origin = ? AND destination = ?",
-        (origin, destination),
+        " WHERE signature = ?",
+        (signature,),
     ).fetchone()
     if not row or not row["lo"] or not row["hi"]:
         return 0.0
@@ -177,24 +197,27 @@ def history_span_days(conn: sqlite3.Connection, origin: str, destination: str) -
     return (hi - lo).total_seconds() / 86400.0
 
 
-def last_alert(conn: sqlite3.Connection) -> Optional[sqlite3.Row]:
+def last_alert(conn: sqlite3.Connection, signature: str) -> Optional[sqlite3.Row]:
     return conn.execute(
-        "SELECT * FROM alerts ORDER BY fired_at DESC LIMIT 1"
+        "SELECT * FROM alerts WHERE signature = ? ORDER BY fired_at DESC LIMIT 1",
+        (signature,),
     ).fetchone()
 
 
 def record_alert(
     conn: sqlite3.Connection,
     quote: Quote,
+    signature: str,
     threshold: int,
     pool_size: int,
     channels: Sequence[str],
 ) -> None:
     conn.execute(
-        "INSERT INTO alerts (fired_at, depart_date, return_date, price, threshold,"
-        " pool_size, channels) VALUES (?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO alerts (fired_at, signature, depart_date, return_date, price,"
+        " threshold, pool_size, channels) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
         (
             utcnow(),
+            signature,
             quote.depart_date,
             quote.return_date,
             quote.price,

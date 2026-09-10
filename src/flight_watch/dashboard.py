@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 
 def _latest_per_departure(
-    conn: sqlite3.Connection, origin: str, destination: str
+    conn: sqlite3.Connection, signature: str
 ) -> list[dict[str, Any]]:
     """The most recent price for each departure date -- i.e. current state.
 
@@ -29,15 +29,15 @@ def _latest_per_departure(
         JOIN (
             SELECT depart_date, MAX(checked_at) AS latest
             FROM observations
-            WHERE origin = ? AND destination = ?
+            WHERE signature = ?
             GROUP BY depart_date
         ) newest
           ON newest.depart_date = o.depart_date AND newest.latest = o.checked_at
-        WHERE o.origin = ? AND o.destination = ?
+        WHERE o.signature = ?
         GROUP BY o.depart_date
         ORDER BY o.depart_date
         """,
-        (origin, destination, origin, destination),
+        (signature, signature),
     ).fetchall()
     return [
         {
@@ -52,7 +52,7 @@ def _latest_per_departure(
     ]
 
 
-def _daily_min(conn: sqlite3.Connection, origin: str, destination: str) -> list[dict]:
+def _daily_min(conn: sqlite3.Connection, signature: str) -> list[dict]:
     rows = conn.execute(
         """
         SELECT substr(checked_at, 1, 10) AS day,
@@ -60,11 +60,11 @@ def _daily_min(conn: sqlite3.Connection, origin: str, destination: str) -> list[
                AVG(price) AS mean,
                COUNT(*)   AS n
         FROM observations
-        WHERE origin = ? AND destination = ?
+        WHERE signature = ?
         GROUP BY day
         ORDER BY day
         """,
-        (origin, destination),
+        (signature,),
     ).fetchall()
     return [
         {
@@ -78,18 +78,19 @@ def _daily_min(conn: sqlite3.Connection, origin: str, destination: str) -> list[
 
 
 def build_payload(conn: sqlite3.Connection, cfg: AppConfig) -> dict[str, Any]:
-    origin, destination = cfg.route.origin, cfg.route.destination
+    search = cfg.search
+    origin, destination = search.origin, search.destination
+    signature = search.signature
 
     scans = conn.execute(
         "SELECT * FROM scans WHERE finished_at IS NOT NULL ORDER BY started_at DESC LIMIT 30"
     ).fetchall()
-    by_date = _latest_per_departure(conn, origin, destination)
-    pool = baseline_prices(conn, origin, destination, cfg.alert.baseline_days)
+    by_date = _latest_per_departure(conn, signature)
+    pool = baseline_prices(conn, signature, cfg.alert.baseline_days)
     all_prices = [
         int(r["price"])
         for r in conn.execute(
-            "SELECT price FROM observations WHERE origin = ? AND destination = ?",
-            (origin, destination),
+            "SELECT price FROM observations WHERE signature = ?", (signature,)
         ).fetchall()
     ]
 
@@ -99,7 +100,8 @@ def build_payload(conn: sqlite3.Connection, cfg: AppConfig) -> dict[str, Any]:
     alerts = [
         dict(r)
         for r in conn.execute(
-            "SELECT * FROM alerts ORDER BY fired_at DESC LIMIT 20"
+            "SELECT * FROM alerts WHERE signature = ? ORDER BY fired_at DESC LIMIT 20",
+            (signature,),
         ).fetchall()
     ]
 
@@ -113,19 +115,25 @@ def build_payload(conn: sqlite3.Connection, cfg: AppConfig) -> dict[str, Any]:
             airlines=best["airlines"],
             stops=best["stops"],
             duration_minutes=None,
-        ).booking_url(origin, destination)
+        ).booking_url(
+            origin, destination, search.party_label, search.seat_class.replace("-", " ")
+        )
 
     return {
         "route": {
             "origin": origin,
             "destination": destination,
-            "stay_nights": cfg.route.stay_nights,
+            "stay_nights": search.stay_nights,
+            "party_label": search.party_label,
+            "party_size": search.party_size,
+            "cabin": search.seat_class.replace("-", " "),
+            "carry_on_bags": search.carry_on_bags,
             "percentile": cfg.alert.percentile,
             "baseline_days": cfg.alert.baseline_days,
         },
         "summary": {
             "observations": len(all_prices),
-            "span_days": history_span_days(conn, origin, destination),
+            "span_days": history_span_days(conn, signature),
             "all_time_low": min(all_prices) if all_prices else None,
             "median": int(percentile(all_prices, 50)) if all_prices else None,
             "threshold": threshold,
@@ -134,7 +142,7 @@ def build_payload(conn: sqlite3.Connection, cfg: AppConfig) -> dict[str, Any]:
             "last_scan": scans[0]["finished_at"] if scans else None,
         },
         "by_date": by_date,
-        "history": _daily_min(conn, origin, destination),
+        "history": _daily_min(conn, signature),
         "alerts": alerts,
         "scans": [
             {

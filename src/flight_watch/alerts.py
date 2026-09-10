@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Optional, Sequence
 
-from .config import AlertConfig, RouteConfig
+from .config import AlertConfig, SearchConfig
 from .models import Quote
 from .storage import baseline_prices, history_span_days, last_alert
 
@@ -35,7 +35,7 @@ class AlertDecision:
 
 def evaluate(
     conn: sqlite3.Connection,
-    route: RouteConfig,
+    search: SearchConfig,
     cfg: AlertConfig,
     best: Optional[Quote],
 ) -> AlertDecision:
@@ -48,8 +48,8 @@ def evaluate(
     if best is None:
         return AlertDecision(False, "no quotes in this scan")
 
-    pool = baseline_prices(conn, route.origin, route.destination, cfg.baseline_days)
-    span = history_span_days(conn, route.origin, route.destination)
+    pool = baseline_prices(conn, search.signature, cfg.baseline_days)
+    span = history_span_days(conn, search.signature)
 
     if len(pool) < cfg.warmup_observations or span < cfg.warmup_days:
         return AlertDecision(
@@ -77,7 +77,7 @@ def evaluate(
             len(pool),
         )
 
-    previous = last_alert(conn)
+    previous = last_alert(conn, search.signature)
     if previous is not None:
         age_hours = (
             datetime.now(timezone.utc) - datetime.fromisoformat(previous["fired_at"])
@@ -102,12 +102,12 @@ def evaluate(
 
 
 def render_alert(
-    quote: Quote, decision: AlertDecision, route: RouteConfig
+    quote: Quote, decision: AlertDecision, search: SearchConfig
 ) -> tuple[str, str]:
     """Build the (title, body) pair sent to every notification channel."""
     title = (
-        f"${quote.price} {route.origin}->{route.destination} "
-        f"{quote.depart_date} ({route.stay_nights}n)"
+        f"${quote.price} {search.origin}->{search.destination} "
+        f"{quote.depart_date} ({search.stay_nights}n, {search.party_size} pax)"
     )
     stops = (
         "nonstop"
@@ -123,11 +123,15 @@ def render_alert(
         if quote.duration_minutes
         else "unknown"
     )
+    per_person = round(quote.price / search.party_size)
+    cabin = search.seat_class.replace("-", " ")
     body = "\n".join(
         [
-            f"{route.origin} -> {route.destination}, {route.stay_nights} nights",
+            f"{search.origin} -> {search.destination}, {search.stay_nights} nights",
             f"Out {quote.depart_date}  /  Back {quote.return_date}",
-            f"${quote.price} {quote.currency} round trip",
+            f"${quote.price} {quote.currency} total for {search.party_label}"
+            f" (~${per_person} each)",
+            f"{cabin}, {search.carry_on_bags} carry-on each",
             "",
             f"Airline: {quote.airlines or 'unknown'}",
             f"Outbound: {stops}, {duration}",
@@ -135,7 +139,7 @@ def render_alert(
             decision.reason,
             f"(baseline: {decision.pool_size} observations)",
             "",
-            quote.booking_url(route.origin, route.destination),
+            quote.booking_url(search.origin, search.destination),
             "",
             "Southwest never appears in Google Flights -- worth a separate check.",
         ]

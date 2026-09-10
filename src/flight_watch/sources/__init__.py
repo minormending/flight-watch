@@ -1,8 +1,11 @@
 from __future__ import annotations
 
-from typing import Protocol
+from typing import TYPE_CHECKING, Protocol
 
 from ..models import Quote, TripDates
+
+if TYPE_CHECKING:
+    from ..config import SearchConfig
 
 
 class PriceSource(Protocol):
@@ -19,13 +22,27 @@ class PriceSource(Protocol):
         ...
 
 
-def build_source(name: str, origin: str, destination: str) -> PriceSource:
+def build_source(name: str, search: "SearchConfig") -> PriceSource:
     if name == "google-flights":
+        from fast_flights import Passengers
+
         from .google_flights import GoogleFlightsSource
 
-        return GoogleFlightsSource(origin=origin, destination=destination)
+        return GoogleFlightsSource(
+            origin=search.origin,
+            destination=search.destination,
+            passengers=Passengers(
+                adults=search.adults,
+                children=search.children,
+                infants_in_seat=search.infants_in_seat,
+                infants_on_lap=search.infants_on_lap,
+            ),
+            seat_class=search.seat_class,
+            carry_on_bags=search.carry_on_bags,
+            checked_bags=search.checked_bags,
+        )
     if name == "serpapi":
         from .serpapi import SerpApiSource
 
-        return SerpApiSource(origin=origin, destination=destination)
+        return SerpApiSource(origin=search.origin, destination=search.destination)
     raise RuntimeError(f"Unknown price source: {name!r}")

@@ -40,19 +40,21 @@ def collect(
     limit: Optional[int] = None,
 ) -> tuple[list[Quote], int]:
     trips = trip_window(
-        cfg.route.stay_nights,
-        cfg.route.window_start_days,
-        cfg.route.window_end_days,
+        cfg.search.stay_nights,
+        cfg.search.window_start_days,
+        cfg.search.window_end_days,
     )
     if limit:
         trips = trips[:limit]
 
     logger.info(
-        "Scanning %d departure dates %s -> %s (%d nights) via %s",
+        "Scanning %d departure dates %s -> %s (%d nights, %s, %s) via %s",
         len(trips),
-        cfg.route.origin,
-        cfg.route.destination,
-        cfg.route.stay_nights,
+        cfg.search.origin,
+        cfg.search.destination,
+        cfg.search.stay_nights,
+        cfg.search.party_label,
+        cfg.search.seat_class,
         source.name,
     )
 
@@ -95,7 +97,7 @@ def collect(
 def run_scan(
     cfg: AppConfig, limit: Optional[int] = None, dry_run: bool = False
 ) -> ScanResult:
-    source = build_source(cfg.scan.source, cfg.route.origin, cfg.route.destination)
+    source = build_source(cfg.scan.source, cfg.search)
     source.max_retries = cfg.scan.max_retries  # type: ignore[attr-defined]
 
     quotes, failed = collect(source, cfg, limit=limit)
@@ -104,18 +106,24 @@ def run_scan(
     with session(cfg.db_file) as conn:
         scan_id = start_scan(
             conn,
-            cfg.route.origin,
-            cfg.route.destination,
-            cfg.route.stay_nights,
+            cfg.search.origin,
+            cfg.search.destination,
+            cfg.search.stay_nights,
             len(quotes) + failed,
         )
         record_quotes(
-            conn, scan_id, cfg.route.origin, cfg.route.destination, source.name, quotes
+            conn,
+            scan_id,
+            cfg.search.origin,
+            cfg.search.destination,
+            cfg.search.signature,
+            source.name,
+            quotes,
         )
         best = result.best
         finish_scan(conn, scan_id, len(quotes), failed, best.price if best else None)
 
-        decision = evaluate(conn, cfg.route, cfg.alert, best)
+        decision = evaluate(conn, cfg.search, cfg.alert, best)
         result.decision = decision
 
         if best is None:
@@ -136,11 +144,12 @@ def run_scan(
         )
 
         if decision.fire and not dry_run:
-            title, body = render_alert(best, decision, cfg.route)
+            title, body = render_alert(best, decision, cfg.search)
             result.delivered = notify(cfg.notify, title, body)
             record_alert(
                 conn,
                 best,
+                cfg.search.signature,
                 decision.threshold or 0,
                 decision.pool_size,
                 result.delivered,

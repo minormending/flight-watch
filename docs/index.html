@@ -265,7 +265,10 @@ function render(d) {
 
   const head = `<h1>${esc(route.origin)} &rarr; ${esc(route.destination)},
     ${route.stay_nights} nights</h1>
-    <div class="sub">Flexible dates &middot; alerts at the
+    <div class="sub">${esc(route.party_label || '1 adult')} &middot;
+    ${esc(route.cabin || 'economy')} &middot;
+    ${route.carry_on_bags || 0} carry-on each<br>
+    Flexible dates &middot; alerts at the
     ${route.percentile}th percentile of the last ${route.baseline_days} days
     &middot; last scan ${summary.last_scan ? esc(summary.last_scan.replace('T', ' ').slice(0, 16)) + ' UTC' : 'never'}</div>`;
 
@@ -282,6 +285,8 @@ function render(d) {
         <div class="k" style="font-size:11px;color:var(--text-muted);text-transform:uppercase;
           letter-spacing:.045em;font-weight:600;margin-bottom:6px">Cheapest right now</div>
         <div class="fig">${money(best.price)}</div>
+        ${route.party_size > 1 ? `<div style="font-size:12px;color:var(--text-muted);
+          margin-top:4px">total &middot; ~${money(Math.round(best.price / route.party_size))} per person</div>` : ''}
       </div>
       <div class="meta">
         <div>Out <strong>${esc(best.depart)}</strong> &middot; back <strong>${esc(best.ret)}</strong></div>
@@ -351,7 +356,9 @@ function render(d) {
       if (!t) return hideTip();
       const r = by_date[+t.dataset.i];
       const cheap = summary.threshold != null && r.price <= summary.threshold;
-      showTip(e, `<b>${money(r.price)}</b> &nbsp;${cheap ? '<span style="color:var(--good)">below threshold</span>' : ''}
+      showTip(e, `<b>${money(r.price)}</b> total${route.party_size > 1 ?
+        ` &middot; ${money(Math.round(r.price / route.party_size))} pp` : ''}
+        ${cheap ? ' &nbsp;<span style="color:var(--good)">below threshold</span>' : ''}
         <br>Out ${esc(r.depart)} &middot; back ${esc(r.ret)}
         <br>${esc(r.airlines || 'unknown')}`);
     });

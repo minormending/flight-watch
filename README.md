@@ -4,7 +4,8 @@ Watches Google Flights for cheap **flexible-date** trips and pushes an alert whe
 the price is unusually low *for this route*, judged against its own history.
 
 Built for the case where you know how long you want to be somewhere but not when:
-"4 nights in San Juan, sometime in the next six months, tell me when it's cheap."
+"4 nights in San Juan for 2 adults and a child, premium economy, sometime in the
+next six months, tell me when it's cheap."
 
 - **Source:** [`fast-flights`](https://github.com/AWeirdDev/flights) — free, no API
   key. It rebuilds the base64-protobuf `tfs` parameter Google Flights uses
@@ -20,14 +21,23 @@ know a fare is good without having watched it. So instead:
 
 1. Each scan sweeps every departure date in the window (default 21–180 days out),
    pairing each with its return date `stay_nights` later, and records the
-   cheapest round trip for each pair.
+   cheapest round trip for each pair. Prices are the **total for the whole
+   party**, not per person.
 2. The best price in the scan is compared against the **20th percentile of every
    price seen on this route in the last 30 days**.
 3. It fires only if it's at or below that threshold, below your optional hard
    ceiling, and not inside the cooldown from the last alert.
 
-The pool is **route-level**, not per-date-pair: with no fixed dates, every
-4-night trip is interchangeable, so they all belong in the same distribution.
+The pool is pooled across date pairs — with no fixed dates, every 4-night trip
+is interchangeable — but never across **search signatures**. The signature covers
+the route, stay length, party, cabin and bags, because a 2-adult premium-economy
+fare and a 1-adult economy fare are different products whose prices must not
+share a baseline.
+
+Change `FW_ADULTS`, `FW_SEAT_CLASS`, `FW_CARRY_ON_BAGS` or `FW_STAY_NIGHTS` and
+you start a clean history automatically: earlier observations stay in the
+database but no longer match, so they drop out of the baseline rather than
+corrupting it. Expect the warmup gate to re-arm after such a change.
 
 Two gates stop it being annoying:
 
@@ -126,6 +136,10 @@ scan; it's off by default so you opt into publishing deliberately.
 | Variable | Default | What it does |
 |---|---|---|
 | `FW_STAY_NIGHTS` | `4` | Nights at the destination |
+| `FW_ADULTS` / `FW_CHILDREN` | `2` / `1` | Who's flying |
+| `FW_SEAT_CLASS` | `premium-economy` | `economy`, `premium-economy`, `business`, `first` |
+| `FW_CARRY_ON_BAGS` | `1` | Carry-ons **per passenger** whose fees are priced in |
+| `FW_CHECKED_BAGS` | `0` | Checked bags per passenger |
 | `FW_WINDOW_START_DAYS` / `FW_WINDOW_END_DAYS` | `21` / `180` | How far ahead to look |
 | `FW_ALERT_PERCENTILE` | `20` | Lower = pickier. `10` is roughly "only real deals" |
 | `FW_BASELINE_DAYS` | `30` | Trailing window the percentile is computed over |
@@ -139,6 +153,14 @@ scan; it's off by default so you opt into publishing deliberately.
 
 - **Southwest never appears in Google Flights.** It serves SJU. Check it
   separately before booking.
+- **Bag counts are per passenger and behave as a price adjustment, not a
+  filter.** Google adds estimated fees for that many bags each; setting more
+  than 1 carry-on changes nothing. Measured on this route: 1 adult economy
+  $291 → $307 with a carry-on; 2 adults + 1 child $871 → $922. Premium economy
+  is unaffected, since a carry-on is already in the fare.
+- **Premium economy has far thinner coverage** — roughly 4 priced itineraries
+  per date versus 10 in economy, and some dates may return nothing at all.
+  A higher `failed` count in the scan log is expected, not necessarily a fault.
 - **Prices are indicative.** They're what Google showed at scan time; fares can
   vanish between the alert and your click.
 - **This is a scraper.** Google can change the response shape at any time and

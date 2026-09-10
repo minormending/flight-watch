@@ -33,12 +33,27 @@ class Quote:
     stops: int | None
     duration_minutes: int | None
 
-    def booking_url(self, origin: str, destination: str) -> str:
-        """A Google Flights URL a human can open to actually book this."""
+    def booking_url(
+        self,
+        origin: str,
+        destination: str,
+        party_label: str | None = None,
+        cabin: str | None = None,
+    ) -> str:
+        """A Google Flights URL a human can open to actually book this.
+
+        Google parses this natural-language form, so the party and cabin have
+        to be spelled out or the link lands on a 1-adult economy search that
+        does not match the price in the alert.
+        """
         q = (
             f"Flights from {origin} to {destination} "
             f"on {self.depart_date} through {self.return_date}"
         )
+        if party_label:
+            q += f" for {party_label}"
+        if cabin:
+            q += f" in {cabin}"
         return f"https://www.google.com/travel/flights?q={quote(q)}"
 
 

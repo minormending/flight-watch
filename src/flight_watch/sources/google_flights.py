@@ -26,11 +26,19 @@ class GoogleFlightsSource:
         self,
         origin: str,
         destination: str,
+        passengers: Passengers | None = None,
+        seat_class: str = "economy",
+        carry_on_bags: int = 0,
+        checked_bags: int = 0,
         currency: str = "USD",
         max_retries: int = 3,
     ) -> None:
         self.origin = origin
         self.destination = destination
+        self.passengers = passengers or Passengers(adults=1)
+        self.seat_class = seat_class
+        self.carry_on_bags = carry_on_bags
+        self.checked_bags = checked_bags
         self.currency = currency
         self.max_retries = max_retries
 
@@ -49,8 +57,13 @@ class GoogleFlightsSource:
                 ),
             ],
             trip="round-trip",
-            seat="economy",
-            passengers=Passengers(adults=1),
+            seat=self.seat_class,
+            passengers=self.passengers,
+            # Google treats these as "include estimated bag fees for this many
+            # bags per passenger", not as a filter -- so 1 means one carry-on
+            # each, and larger values change nothing.
+            carry_on_bags=self.carry_on_bags,
+            checked_bags=self.checked_bags,
             currency=self.currency,
             language="en-US",
         )

@@ -62,7 +62,12 @@ def cmd_report(cfg: AppConfig, args: argparse.Namespace) -> int:
 
     summary = data["summary"]
     print(
-        f"\n{cfg.route.origin} -> {cfg.route.destination}, {cfg.route.stay_nights} nights"
+        f"\n{cfg.search.origin} -> {cfg.search.destination},"
+        f" {cfg.search.stay_nights} nights"
+    )
+    print(
+        f"{cfg.search.party_label}, {cfg.search.seat_class.replace('-', ' ')},"
+        f" {cfg.search.carry_on_bags} carry-on each"
     )
     print(
         f"Observations: {summary['observations']} over {summary['span_days']:.1f} days"
@@ -100,7 +105,7 @@ def cmd_notify_test(cfg: AppConfig, args: argparse.Namespace) -> int:
 
     delivered = notify(
         cfg.notify,
-        f"flight-watch test ({cfg.route.origin}->{cfg.route.destination})",
+        f"flight-watch test ({cfg.search.origin}->{cfg.search.destination})",
         "If you can read this, notifications are wired up correctly.",
     )
     if delivered:

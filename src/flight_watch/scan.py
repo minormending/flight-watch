@@ -95,7 +95,7 @@ def collect(
 def run_scan(
     cfg: AppConfig, limit: Optional[int] = None, dry_run: bool = False
 ) -> ScanResult:
-    source = build_source("google-flights", cfg.route.origin, cfg.route.destination)
+    source = build_source(cfg.scan.source, cfg.route.origin, cfg.route.destination)
     source.max_retries = cfg.scan.max_retries  # type: ignore[attr-defined]
 
     quotes, failed = collect(source, cfg, limit=limit)

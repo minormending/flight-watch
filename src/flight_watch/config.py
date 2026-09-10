@@ -22,6 +22,7 @@ class RouteConfig:
 
 @dataclass
 class ScanConfig:
+    source: str
     request_delay: float
     max_retries: int
 
@@ -107,6 +108,7 @@ def load_config() -> AppConfig:
     return AppConfig(
         route=route,
         scan=ScanConfig(
+            source=_env("FW_SOURCE", "google-flights"),
             request_delay=float(_env("FW_REQUEST_DELAY", "2.5")),
             max_retries=int(_env("FW_MAX_RETRIES", "3")),
         ),

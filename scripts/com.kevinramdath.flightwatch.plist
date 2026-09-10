@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.kevinramdath.flightwatch</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/kevinramdath/projects/flight-watch/scripts/run-scan.sh</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/kevinramdath/projects/flight-watch</string>
+
+  <!-- 10 hours. Deliberately not a divisor of 24: the scan time precesses
+       through the clock, so every hour of the day gets sampled within ~3 days
+       instead of always seeing the same daily point in the price cycle. -->
+  <key>StartInterval</key>
+  <integer>36000</integer>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <!-- If the Mac was asleep at the scheduled time, run as soon as it wakes. -->
+  <key>StartOnMount</key>
+  <false/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/kevinramdath/.flight_watch/launchd.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/kevinramdath/.flight_watch/launchd.err.log</string>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    <key>FW_AUTO_PUBLISH</key>
+    <string>0</string>
+  </dict>
+</dict>
+</plist>

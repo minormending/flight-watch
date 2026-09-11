@@ -35,6 +35,7 @@ class GoogleFlightsSource:
         carry_on_bags: int = 0,
         checked_bags: int = 0,
         exclude_basic_economy: bool = False,
+        max_stops: int | None = None,
         currency: str = "USD",
         max_retries: int = 3,
     ) -> None:
@@ -45,6 +46,7 @@ class GoogleFlightsSource:
         self.carry_on_bags = carry_on_bags
         self.checked_bags = checked_bags
         self.exclude_basic_economy = exclude_basic_economy
+        self.max_stops = max_stops
         self.currency = currency
         self.max_retries = max_retries
 
@@ -55,11 +57,13 @@ class GoogleFlightsSource:
                     date=trip.depart.isoformat(),
                     from_airport=self.origin,
                     to_airport=self.destination,
+                    max_stops=self.max_stops,
                 ),
                 FlightQuery(
                     date=trip.ret.isoformat(),
                     from_airport=self.destination,
                     to_airport=self.origin,
+                    max_stops=self.max_stops,
                 ),
             ],
             trip="round-trip",
@@ -103,8 +107,17 @@ class GoogleFlightsSource:
             entry = payload[slot] if len(payload) > slot else None
             return (entry[0] if entry else None) or []
 
+        combined = items(2) + items(3)
+        if not combined:
+            # Nothing matched -- commonly a destination with no nonstop when
+            # max_stops=0. Return early: parse_js would go on to read the
+            # metadata block, which Google omits on an empty result, and raise
+            # a TypeError that looks like a transport failure and triggers
+            # pointless retries.
+            return []
+
         merged = list(payload)
-        merged[3] = [items(2) + items(3)]
+        merged[3] = [combined]
         return parse_js("data:" + json.dumps(merged) + ",")
 
     def fetch(self, trip: TripDates) -> Quote | None:

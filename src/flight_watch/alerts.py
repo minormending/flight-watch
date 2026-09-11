@@ -102,12 +102,23 @@ def evaluate(
 
 
 def render_alert(
-    quote: Quote, decision: AlertDecision, search: SearchConfig
+    quote: Quote,
+    decision: AlertDecision,
+    search: SearchConfig,
+    watch=None,
+    confirmed: Quote | None = None,
 ) -> tuple[str, str]:
-    """Build the (title, body) pair sent to every notification channel."""
+    """Build the (title, body) pair sent to every notification channel.
+
+    `confirmed` is a re-price of the same trip using the watch's real party,
+    for watches that scan under a proxy party. When Google withholds a price
+    for the real party -- which is why the proxy exists -- it is None and the
+    body says so rather than quietly presenting the proxy as exact.
+    """
+    headline = confirmed.price if confirmed else quote.price
     title = (
-        f"${quote.price} {search.origin}->{search.destination} "
-        f"{quote.depart_date} ({search.stay_nights}n, {search.party_size} pax)"
+        f"${headline} {search.origin}->{search.destination} "
+        f"{quote.depart_date} ({quote.nights_label})"
     )
     stops = (
         "nonstop"
@@ -123,24 +134,47 @@ def render_alert(
         if quote.duration_minutes
         else "unknown"
     )
-    per_person = round(quote.price / search.party_size)
-    body = "\n".join(
-        [
-            f"{search.origin} -> {search.destination}, {search.stay_nights} nights",
-            f"Out {quote.depart_date}  /  Back {quote.return_date}",
-            f"${quote.price} {quote.currency} total for {search.party_label}"
-            f" (~${per_person} each)",
-            f"{search.cabin_label}, {search.carry_on_bags} carry-on each",
-            "",
-            f"Airline: {quote.airlines or 'unknown'}",
-            f"Outbound: {stops}, {duration}",
-            "",
-            decision.reason,
-            f"(baseline: {decision.pool_size} observations)",
-            "",
-            quote.booking_url,
-            "",
-            "Southwest never appears in Google Flights -- worth a separate check.",
+
+    lines = [
+        f"{search.origin} -> {search.destination}, {quote.nights_label}",
+        f"Out {quote.depart_date}  /  Back {quote.return_date}",
+    ]
+
+    proxy = watch is not None and getattr(watch, "is_proxy", False)
+    true_party = watch.confirm_search(search.destination) if proxy else search
+    if proxy and confirmed is not None:
+        each = round(confirmed.price / true_party.party_size)
+        lines += [
+            f"${confirmed.price} {confirmed.currency} total for"
+            f" {true_party.party_label} (~${each} each)",
+            f"(found at ${quote.price} pricing as"
+            f" {search.party_label}; re-checked for your party)",
         ]
-    )
-    return title, body
+    elif proxy:
+        lines += [
+            f"${quote.price} {quote.currency} priced as {search.party_label}",
+            f"APPROXIMATE -- Google would not price {true_party.party_label}"
+            " for this trip. Expect within about 1%, but check before booking.",
+        ]
+    else:
+        each = round(quote.price / search.party_size)
+        lines += [
+            f"${quote.price} {quote.currency} total for {search.party_label}"
+            f" (~${each} each)",
+        ]
+
+    lines += [
+        f"{search.cabin_label}, {search.carry_on_bags} carry-on each,"
+        f" {search.stops_label}",
+        "",
+        f"Airline: {quote.airlines or 'unknown'}",
+        f"Outbound: {stops}, {duration}",
+        "",
+        decision.reason,
+        f"(baseline: {decision.pool_size} observations)",
+        "",
+        (confirmed or quote).booking_url,
+    ]
+    if search.destination == "SJU":
+        lines += ["", "Southwest never appears in Google Flights -- check separately."]
+    return title, "\n".join(lines)

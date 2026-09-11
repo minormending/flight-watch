@@ -6,18 +6,20 @@ from datetime import date, datetime, timedelta, timezone
 import pytest
 
 from flight_watch.alerts import AlertDecision, evaluate, percentile
-from flight_watch.config import AlertConfig, SearchConfig
-from flight_watch.models import Quote
+from flight_watch.config import AlertConfig, SearchConfig, WatchConfig
+from flight_watch.models import DateRule, Quote
 from flight_watch.storage import baseline_prices, connect, record_quotes, start_scan
+
+ROLLING = DateRule(mode="rolling", stay_nights=(4,), start_days=21, end_days=180)
 
 
 def make_search(**overrides) -> SearchConfig:
     base = dict(
+        watch="test",
         origin="NYC",
         destination="SJU",
-        stay_nights=4,
-        window_start_days=21,
-        window_end_days=180,
+        dates=ROLLING,
+        max_stops=None,
         adults=2,
         children=1,
         infants_in_seat=0,
@@ -158,9 +160,22 @@ def test_signature_changes_with_party_and_cabin():
     assert base.signature != make_search(seat_class="premium-economy").signature
     assert base.signature != make_search(exclude_basic_economy=False).signature
     assert base.signature != make_search(carry_on_bags=0).signature
-    assert base.signature != make_search(stay_nights=7).signature
-    # The scan window only picks which dates get sampled; prices stay comparable.
-    assert base.signature == make_search(window_end_days=90).signature
+    assert base.signature != make_search(max_stops=0).signature
+    assert (
+        base.signature
+        != make_search(
+            dates=DateRule(
+                mode="rolling", stay_nights=(7,), start_days=21, end_days=180
+            )
+        ).signature
+    )
+    # A rolling window only picks which dates get sampled; prices stay comparable.
+    assert (
+        base.signature
+        == make_search(
+            dates=DateRule(mode="rolling", stay_nights=(4,), start_days=21, end_days=90)
+        ).signature
+    )
 
 
 def test_party_label_reads_naturally():

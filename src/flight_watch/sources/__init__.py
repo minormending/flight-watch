@@ -41,6 +41,7 @@ def build_source(name: str, search: "SearchConfig") -> PriceSource:
             carry_on_bags=search.carry_on_bags,
             checked_bags=search.checked_bags,
             exclude_basic_economy=search.exclude_basic_economy,
+            max_stops=search.max_stops,
         )
     if name == "serpapi":
         from .serpapi import SerpApiSource

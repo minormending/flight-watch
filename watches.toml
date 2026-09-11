@@ -1,0 +1,98 @@
+# What flight-watch watches. One [watch.<name>] section per thing you care
+# about; [defaults] fills in anything a watch does not set.
+#
+# Each destination gets its own price history, so $400 to Reykjavik and $400
+# to Tokyo are judged against their own baselines rather than each other's.
+
+[defaults]
+origin = "NYC"                  # metro code: covers JFK + LGA + EWR
+adults = 2
+children = 1
+seat_class = "economy"
+exclude_basic_economy = true    # Basic has no carry-on, no seat choice, no changes
+carry_on_bags = 1               # per passenger; Google prices the fees in
+checked_bags = 0
+
+# ---------------------------------------------------------------------------
+# San Juan: no fixed dates, just "4 nights sometime in the next six months".
+# ---------------------------------------------------------------------------
+[watch.sju]
+destinations = ["SJU"]
+mode = "rolling"
+window_start_days = 21
+window_end_days = 180
+stay_nights = 4
+
+# ---------------------------------------------------------------------------
+# Any foreign city with a nonstop from NYC, 4-6 nights inside 12-20 Feb 2027.
+#
+# `destinations` is written by `flight-watch discover --watch foreign-feb`,
+# which probes `candidates` nonstop-only and keeps the ones that actually fly.
+# Full sweeps run every `full_scan_interval_hours`; in between, only the
+# `top_n` cheapest destinations are re-polled.
+# ---------------------------------------------------------------------------
+[watch.foreign-feb]
+mode = "fixed"
+depart_from = 2027-02-12
+depart_to = 2027-02-20
+stay_nights = [4, 5, 6]
+max_stops = 0                   # nonstop only
+top_n = 20
+full_scan_interval_hours = 20
+
+# Google defers results to a client-side request when a child is in the party,
+# and the payload the scraper reads comes back empty for roughly two thirds of
+# international destinations (measured: 6 of 18 vs 17 of 18 for adults). So
+# scan as 3 adults for coverage, then re-price the real 2+1 party once, at
+# alert time. Where both work the gap is about 1%: LHR -0.5%, CDG -0.6%,
+# BCN -2.1%, DUB and YYZ 0%, MAD +8.9%.
+proxy_adults = 3
+
+destinations = []
+
+candidates = [
+  # British Isles
+  "LHR", "LGW", "MAN", "EDI", "DUB", "SNN",
+  # France, Benelux
+  "CDG", "ORY", "NCE", "BRU", "AMS",
+  # Iberia
+  "MAD", "BCN", "LIS", "OPO", "AGP", "PMI", "VLC",
+  # Italy
+  "FCO", "MXP", "LIN", "VCE", "NAP", "BLQ", "CTA", "PMO",
+  # DACH and Alps
+  "FRA", "MUC", "BER", "DUS", "HAM", "STR", "ZRH", "GVA", "VIE",
+  # Nordics
+  "CPH", "ARN", "OSL", "HEL", "KEF",
+  # Central and Eastern Europe
+  "PRG", "BUD", "WAW", "KRK", "OTP", "SOF", "ZAG", "BEG", "TLL", "RIX", "VNO",
+  # Greece, Turkey, Cyprus
+  "ATH", "IST", "SAW", "LCA",
+  # Atlantic islands
+  "FNC", "PDL", "LPA", "TFS",
+  # Middle East
+  "TLV", "DXB", "AUH", "DOH", "KWI", "RUH", "JED", "AMM", "BAH",
+  # Africa
+  "CAI", "CMN", "RAK", "ACC", "LOS", "ABV", "DKR", "JNB", "CPT", "NBO",
+  "ADD", "TUN", "ALG",
+  # Asia
+  "NRT", "HND", "KIX", "ICN", "PVG", "PEK", "PKX", "CAN", "HKG", "TPE",
+  "SIN", "BKK", "KUL", "MNL", "DEL", "BOM", "BLR", "MAA", "HYD", "CMB",
+  "CGK", "SGN", "HAN", "DPS",
+  # Oceania
+  "SYD", "MEL", "BNE", "AKL", "NAN", "PPT",
+  # Canada
+  "YYZ", "YUL", "YVR", "YOW", "YHZ", "YYC", "YWG", "YQB",
+  # Mexico
+  "MEX", "CUN", "GDL", "MTY", "SJD", "PVR", "BJX", "MID", "ZIH", "CZM",
+  # Central America
+  "SJO", "LIR", "PTY", "GUA", "SAL", "TGU", "BZE", "MGA", "RTB",
+  # Caribbean (foreign only -- SJU/STT/STX are US)
+  "NAS", "MBJ", "KIN", "OCJ", "PUJ", "SDQ", "STI", "POP", "LRM", "AUA",
+  "CUR", "BON", "SXM", "ANU", "BGI", "UVF", "GND", "SVD", "POS", "TAB",
+  "PLS", "GCM", "HAV", "VRA", "EIS", "DOM", "SKB", "NEV", "GGT", "ELH",
+  "FPO", "MHH", "CAP", "PAP",
+  # South America
+  "BOG", "MDE", "CTG", "CLO", "LIM", "SCL", "EZE", "AEP", "GRU", "GIG",
+  "CNF", "REC", "SSA", "FOR", "BSB", "POA", "MAO", "UIO", "GYE", "CCS",
+  "ASU", "MVD", "LPB", "VVI", "GEO", "PBM",
+]

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import logging
+import re
 import sqlite3
 from contextlib import contextmanager
 from datetime import datetime, timedelta, timezone
@@ -7,6 +9,8 @@ from pathlib import Path
 from typing import Iterable, Iterator, Optional, Sequence
 
 from .models import Quote
+
+logger = logging.getLogger(__name__)
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS scans (
@@ -16,6 +20,8 @@ CREATE TABLE IF NOT EXISTS scans (
     origin          TEXT    NOT NULL,
     destination     TEXT    NOT NULL,
     stay_nights     INTEGER NOT NULL,
+    watch           TEXT    NOT NULL DEFAULT '',
+    tier            TEXT    NOT NULL DEFAULT 'full',
     pairs_requested INTEGER NOT NULL DEFAULT 0,
     pairs_ok        INTEGER NOT NULL DEFAULT 0,
     pairs_failed    INTEGER NOT NULL DEFAULT 0,
@@ -37,7 +43,8 @@ CREATE TABLE IF NOT EXISTS observations (
     stops            INTEGER,
     duration_minutes INTEGER,
     source           TEXT    NOT NULL,
-    booking_url      TEXT    NOT NULL DEFAULT ''
+    booking_url      TEXT    NOT NULL DEFAULT '',
+    watch            TEXT    NOT NULL DEFAULT ''
 );
 
 CREATE INDEX IF NOT EXISTS idx_obs_sig_time
@@ -77,11 +84,55 @@ def _migrate(conn: sqlite3.Connection) -> None:
                 f"ALTER TABLE {table} ADD COLUMN signature TEXT NOT NULL DEFAULT 'legacy'"
             )
 
-    columns = {r["name"] for r in conn.execute("PRAGMA table_info(observations)")}
-    if columns and "booking_url" not in columns:
-        conn.execute(
-            "ALTER TABLE observations ADD COLUMN booking_url TEXT NOT NULL DEFAULT ''"
-        )
+    additions = {
+        "observations": [
+            ("booking_url", "TEXT NOT NULL DEFAULT ''"),
+            ("watch", "TEXT NOT NULL DEFAULT ''"),
+        ],
+        "scans": [
+            ("watch", "TEXT NOT NULL DEFAULT ''"),
+            ("tier", "TEXT NOT NULL DEFAULT 'full'"),
+        ],
+    }
+    for table, cols in additions.items():
+        existing = {r["name"] for r in conn.execute(f"PRAGMA table_info({table})")}
+        if not existing:
+            continue
+        for column, decl in cols:
+            if column not in existing:
+                conn.execute(f"ALTER TABLE {table} ADD COLUMN {column} {decl}")
+
+    _upgrade_signatures(conn)
+
+
+# Signatures gained a date-mode and a stop-limit segment when watches learned
+# about fixed windows and nonstop-only. Everything recorded before that was a
+# rolling, any-stops search, so the old keys describe the same product and are
+# rewritten rather than orphaned -- otherwise the refactor would silently throw
+# away real history and restart the warmup gate.
+_OLD_SIGNATURE = re.compile(r"^([A-Z]{3}-[A-Z]{3}):(\d+)n:(\d+a\d+c.*)$")
+
+
+def _upgrade_signatures(conn: sqlite3.Connection) -> None:
+    for table in ("observations", "alerts"):
+        existing = {r["name"] for r in conn.execute(f"PRAGMA table_info({table})")}
+        if "signature" not in existing:
+            continue
+        rows = conn.execute(
+            f"SELECT DISTINCT signature FROM {table} WHERE signature != 'legacy'"
+        ).fetchall()
+        for row in rows:
+            old = row["signature"]
+            match = _OLD_SIGNATURE.match(old)
+            if not match:
+                continue
+            new = (
+                f"{match.group(1)}:rolling:{match.group(2)}n:stopsany:{match.group(3)}"
+            )
+            conn.execute(
+                f"UPDATE {table} SET signature = ? WHERE signature = ?", (new, old)
+            )
+            logger.info("Upgraded signature %s -> %s in %s", old, new, table)
 
 
 def connect(db_file: Path) -> sqlite3.Connection:
@@ -111,11 +162,13 @@ def start_scan(
     destination: str,
     stay_nights: int,
     pairs_requested: int,
+    watch: str = "",
+    tier: str = "full",
 ) -> int:
     cur = conn.execute(
-        "INSERT INTO scans (started_at, origin, destination, stay_nights, pairs_requested)"
-        " VALUES (?, ?, ?, ?, ?)",
-        (utcnow(), origin, destination, stay_nights, pairs_requested),
+        "INSERT INTO scans (started_at, origin, destination, stay_nights,"
+        " pairs_requested, watch, tier) VALUES (?, ?, ?, ?, ?, ?, ?)",
+        (utcnow(), origin, destination, stay_nights, pairs_requested, watch, tier),
     )
     return int(cur.lastrowid)
 
@@ -142,6 +195,7 @@ def record_quotes(
     signature: str,
     source: str,
     quotes: Iterable[Quote],
+    watch: str = "",
 ) -> int:
     now = utcnow()
     rows = [
@@ -160,14 +214,15 @@ def record_quotes(
             q.duration_minutes,
             source,
             q.booking_url,
+            watch,
         )
         for q in quotes
     ]
     conn.executemany(
         "INSERT INTO observations (scan_id, checked_at, origin, destination, depart_date,"
         " return_date, signature, price, currency, airlines, stops, duration_minutes,"
-        " source, booking_url)"
-        " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        " source, booking_url, watch)"
+        " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
         rows,
     )
     return len(rows)
@@ -235,3 +290,37 @@ def record_alert(
             ",".join(channels),
         ),
     )
+
+
+def last_full_scan_age_hours(conn: sqlite3.Connection, watch: str) -> float | None:
+    """Hours since this watch last completed a full sweep, or None if never."""
+    row = conn.execute(
+        "SELECT MAX(finished_at) AS at FROM scans"
+        " WHERE watch = ? AND tier = 'full' AND finished_at IS NOT NULL",
+        (watch,),
+    ).fetchone()
+    if not row or not row["at"]:
+        return None
+    return (
+        datetime.now(timezone.utc) - datetime.fromisoformat(row["at"])
+    ).total_seconds() / 3600.0
+
+
+def cheapest_destinations(
+    conn: sqlite3.Connection, signatures: Sequence[str], limit: int, days: int = 14
+) -> list[str]:
+    """The `limit` destinations with the lowest price seen recently.
+
+    Drives the between-sweeps tier: re-poll where the deals actually are
+    instead of spending the whole request budget on Tokyo every time.
+    """
+    if not signatures:
+        return []
+    placeholders = ",".join("?" * len(signatures))
+    rows = conn.execute(
+        "SELECT destination, MIN(price) AS low FROM observations"
+        f" WHERE signature IN ({placeholders}) AND checked_at >= ?"
+        " GROUP BY destination ORDER BY low ASC LIMIT ?",
+        (*signatures, _since(days), limit),
+    ).fetchall()
+    return [r["destination"] for r in rows]

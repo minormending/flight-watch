@@ -204,7 +204,7 @@ function barChart(rows, id) {
   // One shared threshold (a single-destination watch) draws as a rule line;
   // per-destination thresholds differ per bar, so the bar colour carries it.
   const uniq = [...new Set(thresholds)];
-  if (uniq.length === 1) {
+  if (uniq.length === 1 && !rows.some(r => r.warming_up)) {
     s += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(uniq[0])}" y2="${y(uniq[0])}"
       stroke="var(--text-muted)" stroke-width="2" stroke-dasharray="5 4"/>`;
   }
@@ -275,6 +275,18 @@ function historyChart(hist) {
 
 const CHART_CAP = 45;
 
+/* Name only what is still missing; "1045/300 observations" reads like a fault. */
+function warmupNeeds(sm) {
+  const needs = [];
+  if (sm.observations < sm.warmup_target) {
+    needs.push(`${sm.observations}/${sm.warmup_target} observations`);
+  }
+  if (sm.span_days < sm.warmup_days) {
+    needs.push(`${sm.span_days.toFixed(1)}/${sm.warmup_days} days of history`);
+  }
+  return needs.join(', ') || 'nearly there';
+}
+
 function watchCard(block, index) {
   const { route: r, summary: sm, rows, history, alerts, kind } = block;
   const best = sm.best;
@@ -318,7 +330,7 @@ function watchCard(block, index) {
           best.stops ? ` &middot; ${best.stops} stop${best.stops > 1 ? 's' : ''}` : ''}</div>
         <div style="margin-top:8px"><span class="chip ${sm.warming_up ? 'hold' : (best.price <= best.threshold ? 'good' : 'hold')}">
           ${sm.warming_up
-            ? `&#9675; warming up (${sm.observations}/${sm.warmup_target} obs, ${sm.span_days.toFixed(1)}/${sm.warmup_days}d)`
+            ? `&#9675; warming up &middot; ${warmupNeeds(sm)}`
             : (best.price <= best.threshold ? '&#9679; alert-worthy' : '&#9675; above threshold')}</span></div>
         ${best.booking_url ? `<a class="book" href="${esc(best.booking_url)}" target="_blank" rel="noopener">Open in Google Flights &rarr;</a>` : ''}
       </div>

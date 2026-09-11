@@ -1,1508 +1,1894 @@
 {
-  "route": {
-    "origin": "NYC",
-    "destination": "SJU",
-    "stay_nights": 4,
-    "party_label": "2 adults, 1 child",
-    "party_size": 3,
-    "cabin": "economy (excl. Basic)",
-    "carry_on_bags": 1,
-    "percentile": 20.0,
-    "baseline_days": 30
-  },
-  "summary": {
-    "observations": 160,
-    "span_days": 0.0,
-    "all_time_low": 952,
-    "median": 1374,
-    "threshold": 1129,
-    "best_now": {
-      "depart": "2026-10-06",
-      "ret": "2026-10-10",
-      "price": 952,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTEwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTEwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
-    "last_scan": "2026-09-10T22:23:01+00:00"
-  },
-  "by_date": [
-    {
-      "depart": "2026-10-01",
-      "ret": "2026-10-05",
-      "price": 1326,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTA1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-02",
-      "ret": "2026-10-06",
-      "price": 1001,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDJqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTA2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-03",
-      "ret": "2026-10-07",
-      "price": 981,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDNqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTA3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-04",
-      "ret": "2026-10-08",
-      "price": 953,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDRqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTA4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-05",
-      "ret": "2026-10-09",
-      "price": 981,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDVqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTA5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-06",
-      "ret": "2026-10-10",
-      "price": 952,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTEwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-07",
-      "ret": "2026-10-11",
-      "price": 1191,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDdqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTExagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-08",
-      "ret": "2026-10-12",
-      "price": 1492,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDhqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTEyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-09",
-      "ret": "2026-10-13",
-      "price": 1191,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDlqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTEzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-10",
-      "ret": "2026-10-14",
-      "price": 1036,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMTBqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTE0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-11",
-      "ret": "2026-10-15",
-      "price": 1140,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMTFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTE1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-12",
-      "ret": "2026-10-16",
-      "price": 1047,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMTJqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTE2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-13",
-      "ret": "2026-10-17",
-      "price": 953,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMTNqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTE3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-14",
-      "ret": "2026-10-18",
-      "price": 1224,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMTRqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTE4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-15",
-      "ret": "2026-10-19",
-      "price": 1312,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMTVqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTE5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-16",
-      "ret": "2026-10-20",
-      "price": 980,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMTZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTIwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-17",
-      "ret": "2026-10-21",
-      "price": 953,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMTdqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTIxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-18",
-      "ret": "2026-10-22",
-      "price": 981,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMThqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTIyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-19",
-      "ret": "2026-10-23",
-      "price": 960,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMTlqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTIzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-20",
-      "ret": "2026-10-24",
-      "price": 981,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjBqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTI0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-21",
-      "ret": "2026-10-25",
-      "price": 1191,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTI1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-22",
-      "ret": "2026-10-26",
-      "price": 1312,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjJqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTI2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-23",
-      "ret": "2026-10-27",
-      "price": 1214,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjNqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTI3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-24",
-      "ret": "2026-10-28",
-      "price": 953,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjRqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTI4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-25",
-      "ret": "2026-10-29",
-      "price": 953,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjVqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTI5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-26",
-      "ret": "2026-10-30",
-      "price": 953,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTMwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-27",
-      "ret": "2026-10-31",
-      "price": 960,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjdqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTMxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-28",
-      "ret": "2026-11-01",
-      "price": 1116,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjhqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTAxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-29",
-      "ret": "2026-11-02",
-      "price": 1052,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjlqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTAyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-30",
-      "ret": "2026-11-03",
-      "price": 1080,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMzBqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTAzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-10-31",
-      "ret": "2026-11-04",
-      "price": 1018,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMzFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTA0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-01",
-      "ret": "2026-11-05",
-      "price": 1166,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMDFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTA1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-02",
-      "ret": "2026-11-06",
-      "price": 1161,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMDJqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTA2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-03",
-      "ret": "2026-11-07",
-      "price": 1364,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMDNqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTA3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-04",
-      "ret": "2026-11-08",
-      "price": 1657,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMDRqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTA4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-05",
-      "ret": "2026-11-09",
-      "price": 1392,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMDVqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTA5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-06",
-      "ret": "2026-11-10",
-      "price": 1110,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMDZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTEwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-07",
-      "ret": "2026-11-11",
-      "price": 1115,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMDdqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTExagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-08",
-      "ret": "2026-11-12",
-      "price": 1150,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMDhqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTEyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-09",
-      "ret": "2026-11-13",
-      "price": 1157,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMDlqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTEzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-10",
-      "ret": "2026-11-14",
-      "price": 1161,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMTBqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTE0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-11",
-      "ret": "2026-11-15",
-      "price": 1266,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMTFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTE1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-12",
-      "ret": "2026-11-16",
-      "price": 1266,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMTJqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTE2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-13",
-      "ret": "2026-11-17",
-      "price": 1109,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMTNqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTE3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-14",
-      "ret": "2026-11-18",
-      "price": 1121,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMTRqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTE4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-15",
-      "ret": "2026-11-19",
-      "price": 1148,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMTVqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTE5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-16",
-      "ret": "2026-11-20",
-      "price": 1236,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMTZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTIwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-17",
-      "ret": "2026-11-21",
-      "price": 1248,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMTdqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTIxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-18",
-      "ret": "2026-11-22",
-      "price": 1248,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMThqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTIyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-19",
-      "ret": "2026-11-23",
-      "price": 1322,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMTlqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTIzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-20",
-      "ret": "2026-11-24",
-      "price": 1461,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjBqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTI0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-21",
-      "ret": "2026-11-25",
-      "price": 1341,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTI1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-22",
-      "ret": "2026-11-26",
-      "price": 1297,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjJqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTI2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-23",
-      "ret": "2026-11-27",
-      "price": 1341,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjNqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTI3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-24",
-      "ret": "2026-11-28",
-      "price": 1776,
-      "airlines": "United",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjRqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTI4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-25",
-      "ret": "2026-11-29",
-      "price": 2582,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjVqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTI5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-26",
-      "ret": "2026-11-30",
-      "price": 1803,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTMwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-27",
-      "ret": "2026-12-01",
-      "price": 1398,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjdqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTAxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-28",
-      "ret": "2026-12-02",
-      "price": 1107,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjhqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTAyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-29",
-      "ret": "2026-12-03",
-      "price": 1464,
-      "airlines": "United",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjlqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTAzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-11-30",
-      "ret": "2026-12-04",
-      "price": 1197,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMzBqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTA0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-01",
-      "ret": "2026-12-05",
-      "price": 1248,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMDFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTA1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-02",
-      "ret": "2026-12-06",
-      "price": 1253,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMDJqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTA2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-03",
-      "ret": "2026-12-07",
-      "price": 1264,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMDNqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTA3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-04",
-      "ret": "2026-12-08",
-      "price": 1129,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMDRqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTA4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-05",
-      "ret": "2026-12-09",
-      "price": 976,
-      "airlines": "Frontier",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMDVqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTA5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-06",
-      "ret": "2026-12-10",
-      "price": 1107,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMDZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTEwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-07",
-      "ret": "2026-12-11",
-      "price": 1099,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMDdqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTExagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-08",
-      "ret": "2026-12-12",
-      "price": 1078,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMDhqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTEyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-09",
-      "ret": "2026-12-13",
-      "price": 1248,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMDlqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTEzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-10",
-      "ret": "2026-12-14",
-      "price": 1253,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMTBqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTE0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-11",
-      "ret": "2026-12-15",
-      "price": 1129,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMTFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTE1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-12",
-      "ret": "2026-12-16",
-      "price": 1129,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMTJqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTE2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-13",
-      "ret": "2026-12-17",
-      "price": 1125,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMTNqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTE3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-14",
-      "ret": "2026-12-18",
-      "price": 1196,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMTRqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTE4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-15",
-      "ret": "2026-12-19",
-      "price": 1192,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMTVqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTE5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-16",
-      "ret": "2026-12-20",
-      "price": 1371,
-      "airlines": "Delta",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMTZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTIwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-17",
-      "ret": "2026-12-21",
-      "price": 1746,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMTdqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTIxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-18",
-      "ret": "2026-12-22",
-      "price": 1687,
-      "airlines": "JetBlue",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMThqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTIyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-19",
-      "ret": "2026-12-23",
-      "price": 1560,
-      "airlines": "Frontier",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMTlqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTIzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-20",
-      "ret": "2026-12-24",
-      "price": 1746,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjBqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTI0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-21",
-      "ret": "2026-12-25",
-      "price": 1485,
-      "airlines": "Frontier",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTI1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-22",
-      "ret": "2026-12-26",
-      "price": 1986,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjJqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTI2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-23",
-      "ret": "2026-12-27",
-      "price": 2292,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjNqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTI3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-24",
-      "ret": "2026-12-28",
-      "price": 2254,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjRqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTI4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-25",
-      "ret": "2026-12-29",
-      "price": 2110,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjVqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTI5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-26",
-      "ret": "2026-12-30",
-      "price": 2665,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTMwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-27",
-      "ret": "2026-12-31",
-      "price": 2301,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjdqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTMxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-28",
-      "ret": "2027-01-01",
-      "price": 2289,
-      "airlines": "Delta",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjhqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTAxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-29",
-      "ret": "2027-01-02",
-      "price": 2110,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjlqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTAyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-30",
-      "ret": "2027-01-03",
-      "price": 2658,
-      "airlines": "Frontier",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMzBqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTAzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2026-12-31",
-      "ret": "2027-01-04",
-      "price": 1773,
-      "airlines": "Frontier",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMzFqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTA0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-01",
-      "ret": "2027-01-05",
-      "price": 1747,
-      "airlines": "Frontier",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMDFqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTA1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-02",
-      "ret": "2027-01-06",
-      "price": 1461,
-      "airlines": "Frontier",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMDJqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTA2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-03",
-      "ret": "2027-01-07",
-      "price": 1287,
-      "airlines": "Frontier",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMDNqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTA3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-04",
-      "ret": "2027-01-08",
-      "price": 1680,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMDRqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTA4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-05",
-      "ret": "2027-01-09",
-      "price": 1464,
-      "airlines": "Frontier",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMDVqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTA5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-06",
-      "ret": "2027-01-10",
-      "price": 1464,
-      "airlines": "Frontier",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMDZqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTEwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-07",
-      "ret": "2027-01-11",
-      "price": 1377,
-      "airlines": "Frontier",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMDdqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTExagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-08",
-      "ret": "2027-01-12",
-      "price": 1392,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMDhqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTEyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-09",
-      "ret": "2027-01-13",
-      "price": 1392,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMDlqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTEzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-10",
-      "ret": "2027-01-14",
-      "price": 1377,
-      "airlines": "United",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMTBqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTE0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-11",
-      "ret": "2027-01-15",
-      "price": 1377,
-      "airlines": "United",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMTFqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTE1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-12",
-      "ret": "2027-01-16",
-      "price": 1377,
-      "airlines": "United",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMTJqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTE2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-13",
-      "ret": "2027-01-17",
-      "price": 1632,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMTNqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTE3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-14",
-      "ret": "2027-01-18",
-      "price": 1632,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMTRqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTE4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-15",
-      "ret": "2027-01-19",
-      "price": 1752,
-      "airlines": "United",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMTVqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTE5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-16",
-      "ret": "2027-01-20",
-      "price": 1391,
-      "airlines": "United",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMTZqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTIwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-17",
-      "ret": "2027-01-21",
-      "price": 1377,
-      "airlines": "United",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMTdqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTIxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-18",
-      "ret": "2027-01-22",
-      "price": 1341,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMThqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTIyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-19",
-      "ret": "2027-01-23",
-      "price": 1377,
-      "airlines": "United",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMTlqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTIzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-20",
-      "ret": "2027-01-24",
-      "price": 1491,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjBqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTI0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-21",
-      "ret": "2027-01-25",
-      "price": 1392,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjFqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTI1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-22",
-      "ret": "2027-01-26",
-      "price": 1392,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjJqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTI2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-23",
-      "ret": "2027-01-27",
-      "price": 1391,
-      "airlines": "United",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjNqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTI3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-24",
-      "ret": "2027-01-28",
-      "price": 1391,
-      "airlines": "United",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjRqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTI4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-25",
-      "ret": "2027-01-29",
-      "price": 1311,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjVqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTI5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-26",
-      "ret": "2027-01-30",
-      "price": 1341,
-      "airlines": "Southwest",
-      "stops": 2,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjZqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTMwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-27",
-      "ret": "2027-01-31",
-      "price": 1548,
-      "airlines": "Southwest",
-      "stops": 2,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjdqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTMxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-28",
-      "ret": "2027-02-01",
-      "price": 1392,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjhqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTAxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-29",
-      "ret": "2027-02-02",
-      "price": 1392,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjlqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTAyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-30",
-      "ret": "2027-02-03",
-      "price": 1311,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMzBqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTAzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-01-31",
-      "ret": "2027-02-04",
-      "price": 1311,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMzFqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTA0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-01",
-      "ret": "2027-02-05",
-      "price": 1377,
-      "airlines": "United",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDFqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTA1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-02",
-      "ret": "2027-02-06",
-      "price": 1341,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDJqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTA2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-03",
-      "ret": "2027-02-07",
-      "price": 1434,
-      "airlines": "United",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDNqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTA3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-04",
-      "ret": "2027-02-08",
-      "price": 1392,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDRqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTA4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-05",
-      "ret": "2027-02-09",
-      "price": 1392,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDVqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTA5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-06",
-      "ret": "2027-02-10",
-      "price": 1341,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDZqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTEwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-07",
-      "ret": "2027-02-11",
-      "price": 1311,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDdqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTExagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-08",
-      "ret": "2027-02-12",
-      "price": 1311,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDhqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTEyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-09",
-      "ret": "2027-02-13",
-      "price": 1377,
-      "airlines": "United",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDlqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTEzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-10",
-      "ret": "2027-02-14",
-      "price": 1611,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTBqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTE0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-11",
-      "ret": "2027-02-15",
-      "price": 2335,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTFqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTE1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-12",
-      "ret": "2027-02-16",
-      "price": 2395,
-      "airlines": "American",
-      "stops": 2,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTJqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTE2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-13",
-      "ret": "2027-02-17",
-      "price": 1993,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTNqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTE3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-14",
-      "ret": "2027-02-18",
-      "price": 1392,
-      "airlines": "American",
-      "stops": 2,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTRqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTE4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-15",
-      "ret": "2027-02-19",
-      "price": 1774,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTVqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTE5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-16",
-      "ret": "2027-02-20",
-      "price": 1888,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTZqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTIwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-17",
-      "ret": "2027-02-21",
-      "price": 1984,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTdqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTIxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-18",
-      "ret": "2027-02-22",
-      "price": 1774,
-      "airlines": "Frontier",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMThqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTIyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-19",
-      "ret": "2027-02-23",
-      "price": 1392,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTlqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTIzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-20",
-      "ret": "2027-02-24",
-      "price": 1392,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjBqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTI0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-21",
-      "ret": "2027-02-25",
-      "price": 1392,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjFqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTI1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-22",
-      "ret": "2027-02-26",
-      "price": 1392,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjJqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTI2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-23",
-      "ret": "2027-02-27",
-      "price": 1392,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjNqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTI3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-24",
-      "ret": "2027-02-28",
-      "price": 1593,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjRqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTI4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-25",
-      "ret": "2027-03-01",
-      "price": 1513,
-      "airlines": "American",
-      "stops": 2,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjVqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTAxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-26",
-      "ret": "2027-03-02",
-      "price": 1392,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjZqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTAyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-27",
-      "ret": "2027-03-03",
-      "price": 1392,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjdqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTAzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-02-28",
-      "ret": "2027-03-04",
-      "price": 1311,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjhqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTA0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-03-01",
-      "ret": "2027-03-05",
-      "price": 1377,
-      "airlines": "United",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDFqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTA1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-03-02",
-      "ret": "2027-03-06",
-      "price": 1377,
-      "airlines": "United",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDJqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTA2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-03-03",
-      "ret": "2027-03-07",
-      "price": 1407,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDNqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTA3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-03-04",
-      "ret": "2027-03-08",
-      "price": 1614,
-      "airlines": "United",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDRqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTA4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-03-05",
-      "ret": "2027-03-09",
-      "price": 1392,
-      "airlines": "American",
-      "stops": 1,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDVqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTA5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-03-06",
-      "ret": "2027-03-10",
-      "price": 1392,
-      "airlines": "American",
-      "stops": 2,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDZqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTEwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-03-07",
-      "ret": "2027-03-11",
-      "price": 1311,
-      "airlines": "JetBlue",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDdqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTExagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-03-08",
-      "ret": "2027-03-12",
-      "price": 1377,
-      "airlines": "United",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDhqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTEyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    },
-    {
-      "depart": "2027-03-09",
-      "ret": "2027-03-13",
-      "price": 1377,
-      "airlines": "United",
-      "stops": 0,
-      "checked_at": "2026-09-10T22:23:01+00:00",
-      "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDlqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTEzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD"
-    }
-  ],
-  "history": [
-    {
-      "day": "2026-09-10",
-      "low": 952,
-      "mean": 1398.9,
-      "n": 160
-    }
-  ],
-  "alerts": [],
-  "scans": [
-    {
-      "finished_at": "2026-09-10T22:23:01+00:00",
-      "ok": 160,
-      "failed": 0,
-      "best_price": 952
-    },
-    {
-      "finished_at": "2026-09-10T21:14:35+00:00",
-      "ok": 160,
-      "failed": 0,
-      "best_price": 1175
-    },
-    {
-      "finished_at": "2026-09-10T21:04:54+00:00",
-      "ok": 3,
-      "failed": 0,
-      "best_price": 1319
-    },
-    {
-      "finished_at": "2026-09-10T20:16:16+00:00",
-      "ok": 160,
-      "failed": 0,
-      "best_price": 285
+  "generated_at": "2026-09-11T11:58:07+00:00",
+  "watches": [
+    {
+      "name": "sju",
+      "kind": "dates",
+      "route": {
+        "origin": "NYC",
+        "scope": "SJU",
+        "stay_label": "4 nights",
+        "stops_label": "any stops",
+        "window": "21-180 days out",
+        "party_label": "2 adults, 1 child",
+        "party_size": 3,
+        "cabin": "economy (excl. Basic)",
+        "carry_on_bags": 1,
+        "proxy_label": null,
+        "percentile": 20.0,
+        "baseline_days": 30
+      },
+      "summary": {
+        "observations": 160,
+        "span_days": 0.0,
+        "all_time_low": 952,
+        "median": 1374,
+        "threshold": 1129,
+        "best": {
+          "label": "2026-10-06 \u2192 2026-10-10",
+          "destination": "SJU",
+          "price": 952,
+          "airlines": "JetBlue",
+          "depart": "2026-10-06",
+          "ret": "2026-10-10",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTEwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        "last_scan": null
+      },
+      "rows": [
+        {
+          "label": "2026-10-01 \u2192 2026-10-05",
+          "destination": "SJU",
+          "price": 1326,
+          "airlines": "American",
+          "depart": "2026-10-01",
+          "ret": "2026-10-05",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTA1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-02 \u2192 2026-10-06",
+          "destination": "SJU",
+          "price": 1001,
+          "airlines": "JetBlue",
+          "depart": "2026-10-02",
+          "ret": "2026-10-06",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDJqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTA2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-03 \u2192 2026-10-07",
+          "destination": "SJU",
+          "price": 981,
+          "airlines": "JetBlue",
+          "depart": "2026-10-03",
+          "ret": "2026-10-07",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDNqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTA3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-04 \u2192 2026-10-08",
+          "destination": "SJU",
+          "price": 953,
+          "airlines": "JetBlue",
+          "depart": "2026-10-04",
+          "ret": "2026-10-08",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDRqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTA4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-05 \u2192 2026-10-09",
+          "destination": "SJU",
+          "price": 981,
+          "airlines": "JetBlue",
+          "depart": "2026-10-05",
+          "ret": "2026-10-09",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDVqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTA5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-06 \u2192 2026-10-10",
+          "destination": "SJU",
+          "price": 952,
+          "airlines": "JetBlue",
+          "depart": "2026-10-06",
+          "ret": "2026-10-10",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTEwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-07 \u2192 2026-10-11",
+          "destination": "SJU",
+          "price": 1191,
+          "airlines": "JetBlue",
+          "depart": "2026-10-07",
+          "ret": "2026-10-11",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDdqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTExagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-08 \u2192 2026-10-12",
+          "destination": "SJU",
+          "price": 1492,
+          "airlines": "Frontier",
+          "depart": "2026-10-08",
+          "ret": "2026-10-12",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDhqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTEyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-09 \u2192 2026-10-13",
+          "destination": "SJU",
+          "price": 1191,
+          "airlines": "JetBlue",
+          "depart": "2026-10-09",
+          "ret": "2026-10-13",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMDlqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTEzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-10 \u2192 2026-10-14",
+          "destination": "SJU",
+          "price": 1036,
+          "airlines": "JetBlue",
+          "depart": "2026-10-10",
+          "ret": "2026-10-14",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMTBqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTE0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-11 \u2192 2026-10-15",
+          "destination": "SJU",
+          "price": 1140,
+          "airlines": "JetBlue",
+          "depart": "2026-10-11",
+          "ret": "2026-10-15",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMTFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTE1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-12 \u2192 2026-10-16",
+          "destination": "SJU",
+          "price": 1047,
+          "airlines": "JetBlue",
+          "depart": "2026-10-12",
+          "ret": "2026-10-16",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMTJqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTE2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-13 \u2192 2026-10-17",
+          "destination": "SJU",
+          "price": 953,
+          "airlines": "JetBlue",
+          "depart": "2026-10-13",
+          "ret": "2026-10-17",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMTNqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTE3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-14 \u2192 2026-10-18",
+          "destination": "SJU",
+          "price": 1224,
+          "airlines": "JetBlue",
+          "depart": "2026-10-14",
+          "ret": "2026-10-18",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMTRqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTE4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-15 \u2192 2026-10-19",
+          "destination": "SJU",
+          "price": 1312,
+          "airlines": "Frontier",
+          "depart": "2026-10-15",
+          "ret": "2026-10-19",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMTVqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTE5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-16 \u2192 2026-10-20",
+          "destination": "SJU",
+          "price": 980,
+          "airlines": "JetBlue",
+          "depart": "2026-10-16",
+          "ret": "2026-10-20",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMTZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTIwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-17 \u2192 2026-10-21",
+          "destination": "SJU",
+          "price": 953,
+          "airlines": "JetBlue",
+          "depart": "2026-10-17",
+          "ret": "2026-10-21",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMTdqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTIxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-18 \u2192 2026-10-22",
+          "destination": "SJU",
+          "price": 981,
+          "airlines": "JetBlue",
+          "depart": "2026-10-18",
+          "ret": "2026-10-22",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMThqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTIyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-19 \u2192 2026-10-23",
+          "destination": "SJU",
+          "price": 960,
+          "airlines": "JetBlue",
+          "depart": "2026-10-19",
+          "ret": "2026-10-23",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMTlqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTIzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-20 \u2192 2026-10-24",
+          "destination": "SJU",
+          "price": 981,
+          "airlines": "JetBlue",
+          "depart": "2026-10-20",
+          "ret": "2026-10-24",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjBqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTI0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-21 \u2192 2026-10-25",
+          "destination": "SJU",
+          "price": 1191,
+          "airlines": "JetBlue",
+          "depart": "2026-10-21",
+          "ret": "2026-10-25",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTI1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-22 \u2192 2026-10-26",
+          "destination": "SJU",
+          "price": 1312,
+          "airlines": "Frontier",
+          "depart": "2026-10-22",
+          "ret": "2026-10-26",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjJqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTI2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-23 \u2192 2026-10-27",
+          "destination": "SJU",
+          "price": 1214,
+          "airlines": "JetBlue",
+          "depart": "2026-10-23",
+          "ret": "2026-10-27",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjNqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTI3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-24 \u2192 2026-10-28",
+          "destination": "SJU",
+          "price": 953,
+          "airlines": "JetBlue",
+          "depart": "2026-10-24",
+          "ret": "2026-10-28",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjRqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTI4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-25 \u2192 2026-10-29",
+          "destination": "SJU",
+          "price": 953,
+          "airlines": "JetBlue",
+          "depart": "2026-10-25",
+          "ret": "2026-10-29",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjVqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTI5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-26 \u2192 2026-10-30",
+          "destination": "SJU",
+          "price": 953,
+          "airlines": "JetBlue",
+          "depart": "2026-10-26",
+          "ret": "2026-10-30",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTMwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-27 \u2192 2026-10-31",
+          "destination": "SJU",
+          "price": 960,
+          "airlines": "JetBlue",
+          "depart": "2026-10-27",
+          "ret": "2026-10-31",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjdqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEwLTMxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-28 \u2192 2026-11-01",
+          "destination": "SJU",
+          "price": 1116,
+          "airlines": "JetBlue",
+          "depart": "2026-10-28",
+          "ret": "2026-11-01",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjhqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTAxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-29 \u2192 2026-11-02",
+          "destination": "SJU",
+          "price": 1052,
+          "airlines": "JetBlue",
+          "depart": "2026-10-29",
+          "ret": "2026-11-02",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMjlqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTAyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-30 \u2192 2026-11-03",
+          "destination": "SJU",
+          "price": 1080,
+          "airlines": "JetBlue",
+          "depart": "2026-10-30",
+          "ret": "2026-11-03",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMzBqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTAzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-10-31 \u2192 2026-11-04",
+          "destination": "SJU",
+          "price": 1018,
+          "airlines": "JetBlue",
+          "depart": "2026-10-31",
+          "ret": "2026-11-04",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTAtMzFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTA0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-01 \u2192 2026-11-05",
+          "destination": "SJU",
+          "price": 1166,
+          "airlines": "JetBlue",
+          "depart": "2026-11-01",
+          "ret": "2026-11-05",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMDFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTA1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-02 \u2192 2026-11-06",
+          "destination": "SJU",
+          "price": 1161,
+          "airlines": "JetBlue",
+          "depart": "2026-11-02",
+          "ret": "2026-11-06",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMDJqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTA2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-03 \u2192 2026-11-07",
+          "destination": "SJU",
+          "price": 1364,
+          "airlines": "JetBlue",
+          "depart": "2026-11-03",
+          "ret": "2026-11-07",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMDNqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTA3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-04 \u2192 2026-11-08",
+          "destination": "SJU",
+          "price": 1657,
+          "airlines": "Frontier",
+          "depart": "2026-11-04",
+          "ret": "2026-11-08",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMDRqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTA4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-05 \u2192 2026-11-09",
+          "destination": "SJU",
+          "price": 1392,
+          "airlines": "American",
+          "depart": "2026-11-05",
+          "ret": "2026-11-09",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMDVqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTA5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-06 \u2192 2026-11-10",
+          "destination": "SJU",
+          "price": 1110,
+          "airlines": "JetBlue",
+          "depart": "2026-11-06",
+          "ret": "2026-11-10",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMDZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTEwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-07 \u2192 2026-11-11",
+          "destination": "SJU",
+          "price": 1115,
+          "airlines": "JetBlue",
+          "depart": "2026-11-07",
+          "ret": "2026-11-11",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMDdqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTExagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-08 \u2192 2026-11-12",
+          "destination": "SJU",
+          "price": 1150,
+          "airlines": "JetBlue",
+          "depart": "2026-11-08",
+          "ret": "2026-11-12",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMDhqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTEyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-09 \u2192 2026-11-13",
+          "destination": "SJU",
+          "price": 1157,
+          "airlines": "JetBlue",
+          "depart": "2026-11-09",
+          "ret": "2026-11-13",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMDlqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTEzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-10 \u2192 2026-11-14",
+          "destination": "SJU",
+          "price": 1161,
+          "airlines": "JetBlue",
+          "depart": "2026-11-10",
+          "ret": "2026-11-14",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMTBqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTE0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-11 \u2192 2026-11-15",
+          "destination": "SJU",
+          "price": 1266,
+          "airlines": "JetBlue",
+          "depart": "2026-11-11",
+          "ret": "2026-11-15",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMTFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTE1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-12 \u2192 2026-11-16",
+          "destination": "SJU",
+          "price": 1266,
+          "airlines": "JetBlue",
+          "depart": "2026-11-12",
+          "ret": "2026-11-16",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMTJqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTE2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-13 \u2192 2026-11-17",
+          "destination": "SJU",
+          "price": 1109,
+          "airlines": "JetBlue",
+          "depart": "2026-11-13",
+          "ret": "2026-11-17",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMTNqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTE3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-14 \u2192 2026-11-18",
+          "destination": "SJU",
+          "price": 1121,
+          "airlines": "JetBlue",
+          "depart": "2026-11-14",
+          "ret": "2026-11-18",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMTRqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTE4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-15 \u2192 2026-11-19",
+          "destination": "SJU",
+          "price": 1148,
+          "airlines": "JetBlue",
+          "depart": "2026-11-15",
+          "ret": "2026-11-19",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMTVqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTE5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-16 \u2192 2026-11-20",
+          "destination": "SJU",
+          "price": 1236,
+          "airlines": "JetBlue",
+          "depart": "2026-11-16",
+          "ret": "2026-11-20",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMTZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTIwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-17 \u2192 2026-11-21",
+          "destination": "SJU",
+          "price": 1248,
+          "airlines": "Frontier",
+          "depart": "2026-11-17",
+          "ret": "2026-11-21",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMTdqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTIxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-18 \u2192 2026-11-22",
+          "destination": "SJU",
+          "price": 1248,
+          "airlines": "Frontier",
+          "depart": "2026-11-18",
+          "ret": "2026-11-22",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMThqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTIyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-19 \u2192 2026-11-23",
+          "destination": "SJU",
+          "price": 1322,
+          "airlines": "JetBlue",
+          "depart": "2026-11-19",
+          "ret": "2026-11-23",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMTlqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTIzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-20 \u2192 2026-11-24",
+          "destination": "SJU",
+          "price": 1461,
+          "airlines": "JetBlue",
+          "depart": "2026-11-20",
+          "ret": "2026-11-24",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjBqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTI0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-21 \u2192 2026-11-25",
+          "destination": "SJU",
+          "price": 1341,
+          "airlines": "JetBlue",
+          "depart": "2026-11-21",
+          "ret": "2026-11-25",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTI1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-22 \u2192 2026-11-26",
+          "destination": "SJU",
+          "price": 1297,
+          "airlines": "JetBlue",
+          "depart": "2026-11-22",
+          "ret": "2026-11-26",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjJqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTI2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-23 \u2192 2026-11-27",
+          "destination": "SJU",
+          "price": 1341,
+          "airlines": "JetBlue",
+          "depart": "2026-11-23",
+          "ret": "2026-11-27",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjNqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTI3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-24 \u2192 2026-11-28",
+          "destination": "SJU",
+          "price": 1776,
+          "airlines": "United",
+          "depart": "2026-11-24",
+          "ret": "2026-11-28",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjRqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTI4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-25 \u2192 2026-11-29",
+          "destination": "SJU",
+          "price": 2582,
+          "airlines": "JetBlue",
+          "depart": "2026-11-25",
+          "ret": "2026-11-29",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjVqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTI5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-26 \u2192 2026-11-30",
+          "destination": "SJU",
+          "price": 1803,
+          "airlines": "Frontier",
+          "depart": "2026-11-26",
+          "ret": "2026-11-30",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTExLTMwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-27 \u2192 2026-12-01",
+          "destination": "SJU",
+          "price": 1398,
+          "airlines": "Frontier",
+          "depart": "2026-11-27",
+          "ret": "2026-12-01",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjdqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTAxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-28 \u2192 2026-12-02",
+          "destination": "SJU",
+          "price": 1107,
+          "airlines": "JetBlue",
+          "depart": "2026-11-28",
+          "ret": "2026-12-02",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjhqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTAyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-29 \u2192 2026-12-03",
+          "destination": "SJU",
+          "price": 1464,
+          "airlines": "United",
+          "depart": "2026-11-29",
+          "ret": "2026-12-03",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMjlqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTAzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-11-30 \u2192 2026-12-04",
+          "destination": "SJU",
+          "price": 1197,
+          "airlines": "JetBlue",
+          "depart": "2026-11-30",
+          "ret": "2026-12-04",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTEtMzBqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTA0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-01 \u2192 2026-12-05",
+          "destination": "SJU",
+          "price": 1248,
+          "airlines": "Frontier",
+          "depart": "2026-12-01",
+          "ret": "2026-12-05",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMDFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTA1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-02 \u2192 2026-12-06",
+          "destination": "SJU",
+          "price": 1253,
+          "airlines": "JetBlue",
+          "depart": "2026-12-02",
+          "ret": "2026-12-06",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMDJqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTA2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-03 \u2192 2026-12-07",
+          "destination": "SJU",
+          "price": 1264,
+          "airlines": "Frontier",
+          "depart": "2026-12-03",
+          "ret": "2026-12-07",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMDNqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTA3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-04 \u2192 2026-12-08",
+          "destination": "SJU",
+          "price": 1129,
+          "airlines": "JetBlue",
+          "depart": "2026-12-04",
+          "ret": "2026-12-08",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMDRqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTA4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-05 \u2192 2026-12-09",
+          "destination": "SJU",
+          "price": 976,
+          "airlines": "Frontier",
+          "depart": "2026-12-05",
+          "ret": "2026-12-09",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMDVqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTA5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-06 \u2192 2026-12-10",
+          "destination": "SJU",
+          "price": 1107,
+          "airlines": "JetBlue",
+          "depart": "2026-12-06",
+          "ret": "2026-12-10",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMDZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTEwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-07 \u2192 2026-12-11",
+          "destination": "SJU",
+          "price": 1099,
+          "airlines": "Frontier",
+          "depart": "2026-12-07",
+          "ret": "2026-12-11",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMDdqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTExagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-08 \u2192 2026-12-12",
+          "destination": "SJU",
+          "price": 1078,
+          "airlines": "Frontier",
+          "depart": "2026-12-08",
+          "ret": "2026-12-12",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMDhqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTEyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-09 \u2192 2026-12-13",
+          "destination": "SJU",
+          "price": 1248,
+          "airlines": "Frontier",
+          "depart": "2026-12-09",
+          "ret": "2026-12-13",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMDlqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTEzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-10 \u2192 2026-12-14",
+          "destination": "SJU",
+          "price": 1253,
+          "airlines": "JetBlue",
+          "depart": "2026-12-10",
+          "ret": "2026-12-14",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMTBqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTE0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-11 \u2192 2026-12-15",
+          "destination": "SJU",
+          "price": 1129,
+          "airlines": "JetBlue",
+          "depart": "2026-12-11",
+          "ret": "2026-12-15",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMTFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTE1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-12 \u2192 2026-12-16",
+          "destination": "SJU",
+          "price": 1129,
+          "airlines": "JetBlue",
+          "depart": "2026-12-12",
+          "ret": "2026-12-16",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMTJqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTE2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-13 \u2192 2026-12-17",
+          "destination": "SJU",
+          "price": 1125,
+          "airlines": "JetBlue",
+          "depart": "2026-12-13",
+          "ret": "2026-12-17",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMTNqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTE3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-14 \u2192 2026-12-18",
+          "destination": "SJU",
+          "price": 1196,
+          "airlines": "JetBlue",
+          "depart": "2026-12-14",
+          "ret": "2026-12-18",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMTRqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTE4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-15 \u2192 2026-12-19",
+          "destination": "SJU",
+          "price": 1192,
+          "airlines": "JetBlue",
+          "depart": "2026-12-15",
+          "ret": "2026-12-19",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMTVqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTE5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-16 \u2192 2026-12-20",
+          "destination": "SJU",
+          "price": 1371,
+          "airlines": "Delta",
+          "depart": "2026-12-16",
+          "ret": "2026-12-20",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMTZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTIwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-17 \u2192 2026-12-21",
+          "destination": "SJU",
+          "price": 1746,
+          "airlines": "JetBlue",
+          "depart": "2026-12-17",
+          "ret": "2026-12-21",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMTdqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTIxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-18 \u2192 2026-12-22",
+          "destination": "SJU",
+          "price": 1687,
+          "airlines": "JetBlue",
+          "depart": "2026-12-18",
+          "ret": "2026-12-22",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMThqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTIyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-19 \u2192 2026-12-23",
+          "destination": "SJU",
+          "price": 1560,
+          "airlines": "Frontier",
+          "depart": "2026-12-19",
+          "ret": "2026-12-23",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMTlqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTIzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-20 \u2192 2026-12-24",
+          "destination": "SJU",
+          "price": 1746,
+          "airlines": "JetBlue",
+          "depart": "2026-12-20",
+          "ret": "2026-12-24",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjBqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTI0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-21 \u2192 2026-12-25",
+          "destination": "SJU",
+          "price": 1485,
+          "airlines": "Frontier",
+          "depart": "2026-12-21",
+          "ret": "2026-12-25",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjFqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTI1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-22 \u2192 2026-12-26",
+          "destination": "SJU",
+          "price": 1986,
+          "airlines": "JetBlue",
+          "depart": "2026-12-22",
+          "ret": "2026-12-26",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjJqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTI2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-23 \u2192 2026-12-27",
+          "destination": "SJU",
+          "price": 2292,
+          "airlines": "JetBlue",
+          "depart": "2026-12-23",
+          "ret": "2026-12-27",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjNqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTI3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-24 \u2192 2026-12-28",
+          "destination": "SJU",
+          "price": 2254,
+          "airlines": "Frontier",
+          "depart": "2026-12-24",
+          "ret": "2026-12-28",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjRqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTI4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-25 \u2192 2026-12-29",
+          "destination": "SJU",
+          "price": 2110,
+          "airlines": "Frontier",
+          "depart": "2026-12-25",
+          "ret": "2026-12-29",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjVqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTI5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-26 \u2192 2026-12-30",
+          "destination": "SJU",
+          "price": 2665,
+          "airlines": "Frontier",
+          "depart": "2026-12-26",
+          "ret": "2026-12-30",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjZqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTMwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-27 \u2192 2026-12-31",
+          "destination": "SJU",
+          "price": 2301,
+          "airlines": "JetBlue",
+          "depart": "2026-12-27",
+          "ret": "2026-12-31",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjdqBRIDTllDcgUSA1NKVRoaEgoyMDI2LTEyLTMxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-28 \u2192 2027-01-01",
+          "destination": "SJU",
+          "price": 2289,
+          "airlines": "Delta",
+          "depart": "2026-12-28",
+          "ret": "2027-01-01",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjhqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTAxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-29 \u2192 2027-01-02",
+          "destination": "SJU",
+          "price": 2110,
+          "airlines": "Frontier",
+          "depart": "2026-12-29",
+          "ret": "2027-01-02",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMjlqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTAyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-30 \u2192 2027-01-03",
+          "destination": "SJU",
+          "price": 2658,
+          "airlines": "Frontier",
+          "depart": "2026-12-30",
+          "ret": "2027-01-03",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMzBqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTAzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2026-12-31 \u2192 2027-01-04",
+          "destination": "SJU",
+          "price": 1773,
+          "airlines": "Frontier",
+          "depart": "2026-12-31",
+          "ret": "2027-01-04",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjYtMTItMzFqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTA0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-01 \u2192 2027-01-05",
+          "destination": "SJU",
+          "price": 1747,
+          "airlines": "Frontier",
+          "depart": "2027-01-01",
+          "ret": "2027-01-05",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMDFqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTA1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-02 \u2192 2027-01-06",
+          "destination": "SJU",
+          "price": 1461,
+          "airlines": "Frontier",
+          "depart": "2027-01-02",
+          "ret": "2027-01-06",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMDJqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTA2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-03 \u2192 2027-01-07",
+          "destination": "SJU",
+          "price": 1287,
+          "airlines": "Frontier",
+          "depart": "2027-01-03",
+          "ret": "2027-01-07",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMDNqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTA3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-04 \u2192 2027-01-08",
+          "destination": "SJU",
+          "price": 1680,
+          "airlines": "American",
+          "depart": "2027-01-04",
+          "ret": "2027-01-08",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMDRqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTA4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-05 \u2192 2027-01-09",
+          "destination": "SJU",
+          "price": 1464,
+          "airlines": "Frontier",
+          "depart": "2027-01-05",
+          "ret": "2027-01-09",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMDVqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTA5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-06 \u2192 2027-01-10",
+          "destination": "SJU",
+          "price": 1464,
+          "airlines": "Frontier",
+          "depart": "2027-01-06",
+          "ret": "2027-01-10",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMDZqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTEwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-07 \u2192 2027-01-11",
+          "destination": "SJU",
+          "price": 1377,
+          "airlines": "Frontier",
+          "depart": "2027-01-07",
+          "ret": "2027-01-11",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMDdqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTExagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-08 \u2192 2027-01-12",
+          "destination": "SJU",
+          "price": 1392,
+          "airlines": "American",
+          "depart": "2027-01-08",
+          "ret": "2027-01-12",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMDhqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTEyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-09 \u2192 2027-01-13",
+          "destination": "SJU",
+          "price": 1392,
+          "airlines": "American",
+          "depart": "2027-01-09",
+          "ret": "2027-01-13",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMDlqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTEzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-10 \u2192 2027-01-14",
+          "destination": "SJU",
+          "price": 1377,
+          "airlines": "United",
+          "depart": "2027-01-10",
+          "ret": "2027-01-14",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMTBqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTE0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-11 \u2192 2027-01-15",
+          "destination": "SJU",
+          "price": 1377,
+          "airlines": "United",
+          "depart": "2027-01-11",
+          "ret": "2027-01-15",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMTFqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTE1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-12 \u2192 2027-01-16",
+          "destination": "SJU",
+          "price": 1377,
+          "airlines": "United",
+          "depart": "2027-01-12",
+          "ret": "2027-01-16",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMTJqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTE2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-13 \u2192 2027-01-17",
+          "destination": "SJU",
+          "price": 1632,
+          "airlines": "Frontier",
+          "depart": "2027-01-13",
+          "ret": "2027-01-17",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMTNqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTE3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-14 \u2192 2027-01-18",
+          "destination": "SJU",
+          "price": 1632,
+          "airlines": "Frontier",
+          "depart": "2027-01-14",
+          "ret": "2027-01-18",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMTRqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTE4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-15 \u2192 2027-01-19",
+          "destination": "SJU",
+          "price": 1752,
+          "airlines": "United",
+          "depart": "2027-01-15",
+          "ret": "2027-01-19",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMTVqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTE5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-16 \u2192 2027-01-20",
+          "destination": "SJU",
+          "price": 1391,
+          "airlines": "United",
+          "depart": "2027-01-16",
+          "ret": "2027-01-20",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMTZqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTIwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-17 \u2192 2027-01-21",
+          "destination": "SJU",
+          "price": 1377,
+          "airlines": "United",
+          "depart": "2027-01-17",
+          "ret": "2027-01-21",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMTdqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTIxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-18 \u2192 2027-01-22",
+          "destination": "SJU",
+          "price": 1341,
+          "airlines": "JetBlue",
+          "depart": "2027-01-18",
+          "ret": "2027-01-22",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMThqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTIyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-19 \u2192 2027-01-23",
+          "destination": "SJU",
+          "price": 1377,
+          "airlines": "United",
+          "depart": "2027-01-19",
+          "ret": "2027-01-23",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMTlqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTIzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-20 \u2192 2027-01-24",
+          "destination": "SJU",
+          "price": 1491,
+          "airlines": "JetBlue",
+          "depart": "2027-01-20",
+          "ret": "2027-01-24",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjBqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTI0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-21 \u2192 2027-01-25",
+          "destination": "SJU",
+          "price": 1392,
+          "airlines": "American",
+          "depart": "2027-01-21",
+          "ret": "2027-01-25",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjFqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTI1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-22 \u2192 2027-01-26",
+          "destination": "SJU",
+          "price": 1392,
+          "airlines": "American",
+          "depart": "2027-01-22",
+          "ret": "2027-01-26",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjJqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTI2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-23 \u2192 2027-01-27",
+          "destination": "SJU",
+          "price": 1391,
+          "airlines": "United",
+          "depart": "2027-01-23",
+          "ret": "2027-01-27",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjNqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTI3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-24 \u2192 2027-01-28",
+          "destination": "SJU",
+          "price": 1391,
+          "airlines": "United",
+          "depart": "2027-01-24",
+          "ret": "2027-01-28",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjRqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTI4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-25 \u2192 2027-01-29",
+          "destination": "SJU",
+          "price": 1311,
+          "airlines": "JetBlue",
+          "depart": "2027-01-25",
+          "ret": "2027-01-29",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjVqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTI5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-26 \u2192 2027-01-30",
+          "destination": "SJU",
+          "price": 1341,
+          "airlines": "Southwest",
+          "depart": "2027-01-26",
+          "ret": "2027-01-30",
+          "stops": 2,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjZqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTMwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-27 \u2192 2027-01-31",
+          "destination": "SJU",
+          "price": 1548,
+          "airlines": "Southwest",
+          "depart": "2027-01-27",
+          "ret": "2027-01-31",
+          "stops": 2,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjdqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAxLTMxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-28 \u2192 2027-02-01",
+          "destination": "SJU",
+          "price": 1392,
+          "airlines": "American",
+          "depart": "2027-01-28",
+          "ret": "2027-02-01",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjhqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTAxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-29 \u2192 2027-02-02",
+          "destination": "SJU",
+          "price": 1392,
+          "airlines": "American",
+          "depart": "2027-01-29",
+          "ret": "2027-02-02",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMjlqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTAyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-30 \u2192 2027-02-03",
+          "destination": "SJU",
+          "price": 1311,
+          "airlines": "JetBlue",
+          "depart": "2027-01-30",
+          "ret": "2027-02-03",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMzBqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTAzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-01-31 \u2192 2027-02-04",
+          "destination": "SJU",
+          "price": 1311,
+          "airlines": "JetBlue",
+          "depart": "2027-01-31",
+          "ret": "2027-02-04",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDEtMzFqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTA0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-01 \u2192 2027-02-05",
+          "destination": "SJU",
+          "price": 1377,
+          "airlines": "United",
+          "depart": "2027-02-01",
+          "ret": "2027-02-05",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDFqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTA1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-02 \u2192 2027-02-06",
+          "destination": "SJU",
+          "price": 1341,
+          "airlines": "JetBlue",
+          "depart": "2027-02-02",
+          "ret": "2027-02-06",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDJqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTA2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-03 \u2192 2027-02-07",
+          "destination": "SJU",
+          "price": 1434,
+          "airlines": "United",
+          "depart": "2027-02-03",
+          "ret": "2027-02-07",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDNqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTA3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-04 \u2192 2027-02-08",
+          "destination": "SJU",
+          "price": 1392,
+          "airlines": "American",
+          "depart": "2027-02-04",
+          "ret": "2027-02-08",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDRqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTA4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-05 \u2192 2027-02-09",
+          "destination": "SJU",
+          "price": 1392,
+          "airlines": "American",
+          "depart": "2027-02-05",
+          "ret": "2027-02-09",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDVqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTA5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-06 \u2192 2027-02-10",
+          "destination": "SJU",
+          "price": 1341,
+          "airlines": "JetBlue",
+          "depart": "2027-02-06",
+          "ret": "2027-02-10",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDZqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTEwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-07 \u2192 2027-02-11",
+          "destination": "SJU",
+          "price": 1311,
+          "airlines": "JetBlue",
+          "depart": "2027-02-07",
+          "ret": "2027-02-11",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDdqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTExagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-08 \u2192 2027-02-12",
+          "destination": "SJU",
+          "price": 1311,
+          "airlines": "JetBlue",
+          "depart": "2027-02-08",
+          "ret": "2027-02-12",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDhqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTEyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-09 \u2192 2027-02-13",
+          "destination": "SJU",
+          "price": 1377,
+          "airlines": "United",
+          "depart": "2027-02-09",
+          "ret": "2027-02-13",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMDlqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTEzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-10 \u2192 2027-02-14",
+          "destination": "SJU",
+          "price": 1611,
+          "airlines": "JetBlue",
+          "depart": "2027-02-10",
+          "ret": "2027-02-14",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTBqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTE0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-11 \u2192 2027-02-15",
+          "destination": "SJU",
+          "price": 2335,
+          "airlines": "Frontier",
+          "depart": "2027-02-11",
+          "ret": "2027-02-15",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTFqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTE1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-12 \u2192 2027-02-16",
+          "destination": "SJU",
+          "price": 2395,
+          "airlines": "American",
+          "depart": "2027-02-12",
+          "ret": "2027-02-16",
+          "stops": 2,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTJqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTE2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-13 \u2192 2027-02-17",
+          "destination": "SJU",
+          "price": 1993,
+          "airlines": "Frontier",
+          "depart": "2027-02-13",
+          "ret": "2027-02-17",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTNqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTE3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-14 \u2192 2027-02-18",
+          "destination": "SJU",
+          "price": 1392,
+          "airlines": "American",
+          "depart": "2027-02-14",
+          "ret": "2027-02-18",
+          "stops": 2,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTRqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTE4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-15 \u2192 2027-02-19",
+          "destination": "SJU",
+          "price": 1774,
+          "airlines": "Frontier",
+          "depart": "2027-02-15",
+          "ret": "2027-02-19",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTVqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTE5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-16 \u2192 2027-02-20",
+          "destination": "SJU",
+          "price": 1888,
+          "airlines": "Frontier",
+          "depart": "2027-02-16",
+          "ret": "2027-02-20",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTZqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTIwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-17 \u2192 2027-02-21",
+          "destination": "SJU",
+          "price": 1984,
+          "airlines": "Frontier",
+          "depart": "2027-02-17",
+          "ret": "2027-02-21",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTdqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTIxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-18 \u2192 2027-02-22",
+          "destination": "SJU",
+          "price": 1774,
+          "airlines": "Frontier",
+          "depart": "2027-02-18",
+          "ret": "2027-02-22",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMThqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTIyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-19 \u2192 2027-02-23",
+          "destination": "SJU",
+          "price": 1392,
+          "airlines": "American",
+          "depart": "2027-02-19",
+          "ret": "2027-02-23",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMTlqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTIzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-20 \u2192 2027-02-24",
+          "destination": "SJU",
+          "price": 1392,
+          "airlines": "American",
+          "depart": "2027-02-20",
+          "ret": "2027-02-24",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjBqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTI0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-21 \u2192 2027-02-25",
+          "destination": "SJU",
+          "price": 1392,
+          "airlines": "American",
+          "depart": "2027-02-21",
+          "ret": "2027-02-25",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjFqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTI1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-22 \u2192 2027-02-26",
+          "destination": "SJU",
+          "price": 1392,
+          "airlines": "American",
+          "depart": "2027-02-22",
+          "ret": "2027-02-26",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjJqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTI2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-23 \u2192 2027-02-27",
+          "destination": "SJU",
+          "price": 1392,
+          "airlines": "American",
+          "depart": "2027-02-23",
+          "ret": "2027-02-27",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjNqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTI3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-24 \u2192 2027-02-28",
+          "destination": "SJU",
+          "price": 1593,
+          "airlines": "JetBlue",
+          "depart": "2027-02-24",
+          "ret": "2027-02-28",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjRqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAyLTI4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-25 \u2192 2027-03-01",
+          "destination": "SJU",
+          "price": 1513,
+          "airlines": "American",
+          "depart": "2027-02-25",
+          "ret": "2027-03-01",
+          "stops": 2,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjVqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTAxagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-26 \u2192 2027-03-02",
+          "destination": "SJU",
+          "price": 1392,
+          "airlines": "American",
+          "depart": "2027-02-26",
+          "ret": "2027-03-02",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjZqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTAyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-27 \u2192 2027-03-03",
+          "destination": "SJU",
+          "price": 1392,
+          "airlines": "American",
+          "depart": "2027-02-27",
+          "ret": "2027-03-03",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjdqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTAzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-02-28 \u2192 2027-03-04",
+          "destination": "SJU",
+          "price": 1311,
+          "airlines": "JetBlue",
+          "depart": "2027-02-28",
+          "ret": "2027-03-04",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDItMjhqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTA0agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-03-01 \u2192 2027-03-05",
+          "destination": "SJU",
+          "price": 1377,
+          "airlines": "United",
+          "depart": "2027-03-01",
+          "ret": "2027-03-05",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDFqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTA1agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-03-02 \u2192 2027-03-06",
+          "destination": "SJU",
+          "price": 1377,
+          "airlines": "United",
+          "depart": "2027-03-02",
+          "ret": "2027-03-06",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDJqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTA2agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-03-03 \u2192 2027-03-07",
+          "destination": "SJU",
+          "price": 1407,
+          "airlines": "American",
+          "depart": "2027-03-03",
+          "ret": "2027-03-07",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDNqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTA3agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-03-04 \u2192 2027-03-08",
+          "destination": "SJU",
+          "price": 1614,
+          "airlines": "United",
+          "depart": "2027-03-04",
+          "ret": "2027-03-08",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDRqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTA4agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-03-05 \u2192 2027-03-09",
+          "destination": "SJU",
+          "price": 1392,
+          "airlines": "American",
+          "depart": "2027-03-05",
+          "ret": "2027-03-09",
+          "stops": 1,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDVqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTA5agUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-03-06 \u2192 2027-03-10",
+          "destination": "SJU",
+          "price": 1392,
+          "airlines": "American",
+          "depart": "2027-03-06",
+          "ret": "2027-03-10",
+          "stops": 2,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDZqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTEwagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-03-07 \u2192 2027-03-11",
+          "destination": "SJU",
+          "price": 1311,
+          "airlines": "JetBlue",
+          "depart": "2027-03-07",
+          "ret": "2027-03-11",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDdqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTExagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-03-08 \u2192 2027-03-12",
+          "destination": "SJU",
+          "price": 1377,
+          "airlines": "United",
+          "depart": "2027-03-08",
+          "ret": "2027-03-12",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDhqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTEyagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        },
+        {
+          "label": "2027-03-09 \u2192 2027-03-13",
+          "destination": "SJU",
+          "price": 1377,
+          "airlines": "United",
+          "depart": "2027-03-09",
+          "ret": "2027-03-13",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhoSCjIwMjctMDMtMDlqBRIDTllDcgUSA1NKVRoaEgoyMDI3LTAzLTEzagUSA1NKVXIFEgNOWUNCAwEBAkgBagQQARgAmAEByAEB&hl=en-US&curr=USD",
+          "threshold": 1129
+        }
+      ],
+      "history": [
+        {
+          "day": "2026-09-10",
+          "low": 952,
+          "mean": 1398.9,
+          "n": 160
+        }
+      ],
+      "alerts": []
+    },
+    {
+      "name": "foreign-feb",
+      "kind": "destinations",
+      "route": {
+        "origin": "NYC",
+        "scope": "92 destinations",
+        "stay_label": "4-6 nights",
+        "stops_label": "nonstop only",
+        "window": "2027-02-12 to 2027-02-20",
+        "party_label": "2 adults, 1 child",
+        "party_size": 3,
+        "cabin": "economy (excl. Basic)",
+        "carry_on_bags": 1,
+        "proxy_label": "3 adults",
+        "percentile": 20.0,
+        "baseline_days": 30
+      },
+      "summary": {
+        "observations": 36,
+        "span_days": 0.0,
+        "all_time_low": 1194,
+        "median": 1306,
+        "threshold": 1291,
+        "best": {
+          "label": "YYZ",
+          "destination": "YYZ",
+          "price": 1194,
+          "airlines": "American",
+          "depart": "2027-02-14",
+          "ret": "2027-02-18",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMTQoAGoFEgNOWUNyBRIDWVlaGhwSCjIwMjctMDItMTgoAGoFEgNZWVpyBRIDTllDQgMBAQFIAWoEEAEYAJgBAcgBAQ==&hl=en-US&curr=USD",
+          "threshold": 1291
+        },
+        "last_scan": "2026-09-11T11:58:07+00:00"
+      },
+      "rows": [
+        {
+          "label": "YYZ",
+          "destination": "YYZ",
+          "price": 1194,
+          "airlines": "American",
+          "depart": "2027-02-14",
+          "ret": "2027-02-18",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMTQoAGoFEgNOWUNyBRIDWVlaGhwSCjIwMjctMDItMTgoAGoFEgNZWVpyBRIDTllDQgMBAQFIAWoEEAEYAJgBAcgBAQ==&hl=en-US&curr=USD",
+          "threshold": 1291
+        },
+        {
+          "label": "YUL",
+          "destination": "YUL",
+          "price": 1306,
+          "airlines": "Delta",
+          "depart": "2027-02-12",
+          "ret": "2027-02-16",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMTIoAGoFEgNOWUNyBRIDWVVMGhwSCjIwMjctMDItMTYoAGoFEgNZVUxyBRIDTllDQgMBAQFIAWoEEAEYAJgBAcgBAQ==&hl=en-US&curr=USD",
+          "threshold": 1306
+        },
+        {
+          "label": "DUB",
+          "destination": "DUB",
+          "price": 1338,
+          "airlines": "Delta",
+          "depart": "2027-02-12",
+          "ret": "2027-02-16",
+          "stops": 0,
+          "booking_url": "https://www.google.com/travel/flights/search?tfs=GhwSCjIwMjctMDItMTIoAGoFEgNOWUNyBRIDRFVCGhwSCjIwMjctMDItMTYoAGoFEgNEVUJyBRIDTllDQgMBAQFIAWoEEAEYAJgBAcgBAQ==&hl=en-US&curr=USD",
+          "threshold": 1338
+        }
+      ],
+      "history": [
+        {
+          "day": "2026-09-11",
+          "low": 1194,
+          "mean": 1401.8,
+          "n": 36
+        }
+      ],
+      "alerts": []
     }
   ]
 }

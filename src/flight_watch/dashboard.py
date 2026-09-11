@@ -39,8 +39,18 @@ def _latest_rows(conn: sqlite3.Connection, signature: str) -> list[dict[str, Any
 
 
 def _threshold(conn: sqlite3.Connection, search: SearchConfig, cfg: AppConfig):
+    """Alert threshold, plus whether it means anything yet.
+
+    During warmup every price is near its own percentile, so a threshold
+    exists but no alert would fire against it. Surfacing it as "alert-worthy"
+    would promise something the alert engine will not deliver.
+    """
     pool = baseline_prices(conn, search.signature, cfg.alert.baseline_days)
-    return int(percentile(pool, cfg.alert.percentile)) if pool else None
+    if not pool:
+        return None, True
+    span = history_span_days(conn, search.signature)
+    warming = len(pool) < cfg.alert.warmup_observations or span < cfg.alert.warmup_days
+    return int(percentile(pool, cfg.alert.percentile)), warming
 
 
 def _watch_block(
@@ -58,6 +68,7 @@ def _watch_block(
             if not latest:
                 continue
             best = min(latest, key=lambda r: r["price"])
+            threshold, warming = _threshold(conn, search, cfg)
             rows.append(
                 {
                     "label": search.destination,
@@ -68,13 +79,14 @@ def _watch_block(
                     "ret": best["return_date"],
                     "stops": best["stops"],
                     "booking_url": best["booking_url"],
-                    "threshold": _threshold(conn, search, cfg),
+                    "threshold": threshold,
+                    "warming_up": warming,
                 }
             )
         rows.sort(key=lambda r: r["price"])
     else:
         search = searches[0]
-        threshold = _threshold(conn, search, cfg)
+        threshold, warming = _threshold(conn, search, cfg)
         for r in _latest_rows(conn, search.signature):
             rows.append(
                 {
@@ -87,6 +99,7 @@ def _watch_block(
                     "stops": r["stops"],
                     "booking_url": r["booking_url"],
                     "threshold": threshold,
+                    "warming_up": warming,
                 }
             )
 
@@ -148,6 +161,9 @@ def _watch_block(
             "all_time_low": min(all_prices) if all_prices else None,
             "median": int(percentile(all_prices, 50)) if all_prices else None,
             "threshold": best_row["threshold"] if best_row else None,
+            "warming_up": all(r["warming_up"] for r in rows) if rows else True,
+            "warmup_target": cfg.alert.warmup_observations,
+            "warmup_days": cfg.alert.warmup_days,
             "best": best_row,
             "last_scan": last_scan["at"] if last_scan else None,
         },

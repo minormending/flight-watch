@@ -171,7 +171,10 @@ const shortDate = (iso) => {
 
 /* ---- Bar chart: one bar per row (a date, or a destination) -------------- */
 function barChart(rows, id) {
-  const W = Math.max(920, rows.length * 22), H = 260;
+  // Destination codes need room to sit under their own bar; a run of dates
+  // reads better packed tight with month markers, the way a price calendar does.
+  const perBar = id === 'destinations' ? 22 : 6;
+  const W = Math.max(920, rows.length * perBar), H = 260;
   const m = { t: 12, r: 14, b: 46, l: 54 };
   const iw = W - m.l - m.r, ih = H - m.t - m.b;
   const thresholds = rows.map(r => r.threshold).filter(v => v != null);
@@ -180,7 +183,8 @@ function barChart(rows, id) {
   const top = ticks[ticks.length - 1];
   const y = v => m.t + ih - (v / top) * ih;
   const bw = iw / rows.length;
-  const barW = Math.max(1.5, bw - 2); // 2px surface gap between bars
+  // Cap the width so a chart with three bars does not render three slabs.
+  const barW = Math.min(46, Math.max(1.5, bw - 2)); // 2px surface gap between bars
 
   let s = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img"
     aria-label="Cheapest round trip by ${id}">`;
@@ -189,7 +193,7 @@ function barChart(rows, id) {
     s += `<text class="tick" x="${m.l - 8}" y="${y(t) + 3.5}" text-anchor="end">${money(t)}</text>`;
   }
   rows.forEach((r, i) => {
-    const cheap = r.threshold != null && r.price <= r.threshold;
+    const cheap = !r.warming_up && r.threshold != null && r.price <= r.threshold;
     const h = Math.max(1, m.t + ih - y(r.price));
     const x = m.l + i * bw + (bw - barW) / 2;
     s += `<rect x="${x.toFixed(2)}" y="${y(r.price).toFixed(2)}" width="${barW.toFixed(2)}"
@@ -312,8 +316,10 @@ function watchCard(block, index) {
       <div class="meta">
         <div>${esc(best.airlines || 'unknown airline')}${best.stops === 0 ? ' &middot; nonstop' :
           best.stops ? ` &middot; ${best.stops} stop${best.stops > 1 ? 's' : ''}` : ''}</div>
-        <div style="margin-top:8px"><span class="chip ${best.threshold != null && best.price <= best.threshold ? 'good' : 'hold'}">
-          ${best.threshold != null && best.price <= best.threshold ? '&#9679; alert-worthy' : '&#9675; above threshold'}</span></div>
+        <div style="margin-top:8px"><span class="chip ${sm.warming_up ? 'hold' : (best.price <= best.threshold ? 'good' : 'hold')}">
+          ${sm.warming_up
+            ? `&#9675; warming up (${sm.observations}/${sm.warmup_target} obs, ${sm.span_days.toFixed(1)}/${sm.warmup_days}d)`
+            : (best.price <= best.threshold ? '&#9679; alert-worthy' : '&#9675; above threshold')}</span></div>
         ${best.booking_url ? `<a class="book" href="${esc(best.booking_url)}" target="_blank" rel="noopener">Open in Google Flights &rarr;</a>` : ''}
       </div>
     </div>
@@ -327,8 +333,10 @@ function watchCard(block, index) {
 
     <h3>Cheapest by ${kind === 'destinations' ? 'destination' : 'departure date'}${capNote}</h3>
     <div class="legend">
-      <span><i class="swatch" style="background:var(--good)"></i> at or below its alert threshold</span>
-      <span><i class="swatch" style="background:var(--series-1)"></i> above threshold</span>
+      ${sm.warming_up
+        ? '<span>Thresholds are still warming up, so nothing is marked alert-worthy yet.</span>'
+        : `<span><i class="swatch" style="background:var(--good)"></i> at or below its alert threshold</span>
+           <span><i class="swatch" style="background:var(--series-1)"></i> above threshold</span>`}
     </div>
     <div class="plot" data-chart="${index}">${barChart(chartRows, kind)}</div>
 
@@ -381,8 +389,8 @@ function render(d) {
       const t = e.target.closest('rect[data-i]');
       if (!t) return hideTip();
       const r = rows[+t.dataset.i];
-      const cheap = r.threshold != null && r.price <= r.threshold;
-      showTip(e, `<b>${money(r.price)}</b>${cheap ? ' <span style="color:var(--good)">below threshold</span>' : ''}
+      const cheap = !r.warming_up && r.threshold != null && r.price <= r.threshold;
+      showTip(e, `<b>${money(r.price)}</b>${!r.warming_up && cheap ? ' <span style="color:var(--good)">below threshold</span>' : ''}
         <br>${esc(r.destination)} &middot; ${esc(r.depart)} → ${esc(r.ret)}
         <br>${esc(r.airlines || 'unknown')}${r.threshold != null ? `<br><span style="color:var(--text-secondary)">threshold ${money(r.threshold)}</span>` : ''}`);
     });

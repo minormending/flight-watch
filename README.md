@@ -58,8 +58,10 @@ Two gates stop it being annoying:
 sampled within about three days. A 12- or 24-hour cadence would only ever show
 you the same point in the daily price cycle.
 
-At this cadence a full 160-date sweep is roughly 380 requests/day, which measured
-comfortable (~1.1s/request, no rate limiting) without any request-budget tricks.
+Request budget across both watches works out around 2,000/day: `sju` is 160
+requests a tick, and `foreign-feb` alternates a full 92-destination sweep
+(~1,100 requests, about an hour) with a top-20 pass (~240). A single request
+measured ~1.1s with no rate limiting, and the delay between them is jittered.
 
 ## Watches
 
@@ -141,8 +143,14 @@ Gmail is supported as a second channel (`GMAIL_USERNAME`, `GMAIL_APP_PASSWORD`,
 # A quick 5-date smoke test that never notifies
 .venv/bin/python -m flight_watch.main scan --limit 5 --dry-run
 
-# A real sweep (~8 minutes for 160 dates), refreshing the dashboard
+# Every watch, tier chosen automatically, refreshing the dashboard
 .venv/bin/python -m flight_watch.main scan --export docs
+
+# One watch, forcing a tier
+.venv/bin/python -m flight_watch.main scan --watch foreign-feb --tier top
+
+# What is configured?
+.venv/bin/python -m flight_watch.main watches
 
 # What do we know so far?
 .venv/bin/python -m flight_watch.main report

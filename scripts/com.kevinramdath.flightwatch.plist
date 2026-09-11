@@ -16,7 +16,12 @@
 
   <!-- 10 hours. Deliberately not a divisor of 24: the scan time precesses
        through the clock, so every hour of the day gets sampled within ~3 days
-       instead of always seeing the same daily point in the price cycle. -->
+       instead of always seeing the same daily point in the price cycle.
+
+       A tick runs every watch. sju is ~160 requests; foreign-feb alternates a
+       full 92-destination sweep (~1,100 requests, about an hour) with a top-20
+       pass (~240). Budget roughly 70 minutes for a full tick and 20 for a
+       light one -- well inside the 10-hour window. -->
   <key>StartInterval</key>
   <integer>36000</integer>
 

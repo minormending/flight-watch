@@ -3,9 +3,13 @@
 Watches Google Flights for cheap **flexible-date** trips and pushes an alert when
 the price is unusually low *for this route*, judged against its own history.
 
-Built for the case where you know how long you want to be somewhere but not when:
-"4 nights in San Juan for 2 adults and a child, sometime in the next six
-months, tell me when it's cheap."
+Built for the case where you know roughly what trip you want but not when or
+where. Two watches ship configured in `watches.toml`:
+
+| Watch | What it asks |
+|---|---|
+| `sju` | 4 nights in San Juan, any time in the next six months |
+| `foreign-feb` | Any foreign city with a NYC **nonstop**, 4-6 nights inside 12-20 Feb 2027 |
 
 - **Source:** [`fast-flights`](https://github.com/AWeirdDev/flights) — free, no API
   key. It rebuilds the base64-protobuf `tfs` parameter Google Flights uses
@@ -56,6 +60,52 @@ you the same point in the daily price cycle.
 
 At this cadence a full 160-date sweep is roughly 380 requests/day, which measured
 comfortable (~1.1s/request, no rate limiting) without any request-budget tricks.
+
+## Watches
+
+Each watch is a `[watch.<name>]` section in `watches.toml`; `[defaults]` fills
+in anything it omits. A watch has an origin, a set of destinations, a date rule
+and a party, and it expands into **one search per destination** so every city
+keeps its own price history. That matters: $400 to Reykjavik and $400 to Tokyo
+are not equally good, and a shared baseline would rank them as if they were.
+
+Date rules come in two shapes:
+
+- **rolling** -- `window_start_days` / `window_end_days`, e.g. "4 nights
+  somewhere in the next six months." The return may fall past the horizon,
+  because the horizon only says how far ahead to look.
+- **fixed** -- `depart_from` / `depart_to`, e.g. "4-6 nights between 12 and 20
+  February." Both ends must sit inside the window, so that pairing is 12
+  combinations, not 27.
+
+### Finding destinations
+
+`foreign-feb` starts with no destinations and a long `candidates` list. Fill it
+in with:
+
+```bash
+flight-watch discover --watch foreign-feb
+```
+
+That probes each candidate nonstop-only across three dates spread through the
+window and keeps the ones that return a price. Three dates rather than one
+because availability varies by day and a single blank date is not evidence
+there is no nonstop. Results are written to
+`~/.flight_watch/destinations/foreign-feb.json`, not back into `watches.toml`,
+so discovery never rewrites a file you maintain and a bad run is undone by
+deleting the sidecar.
+
+### Two-tier scanning
+
+A full sweep of ~100 destinations x 12 date combos is ~1,200 requests. Rather
+than do that every time:
+
+- a **full** sweep runs when the last one is older than `full_scan_interval_hours`
+- otherwise only the `top_n` cheapest destinations are re-polled
+
+With a 10-hour agent and a 20-hour interval that alternates full / top / full,
+so every destination refreshes about daily while the promising ones get
+re-checked in between. `--tier full` or `--tier top` overrides it.
 
 ## Setup
 
@@ -135,10 +185,11 @@ scan; it's off by default so you opt into publishing deliberately.
 
 | Variable | Default | What it does |
 |---|---|---|
-| `FW_STAY_NIGHTS` | `4` | Nights at the destination |
-| `FW_ADULTS` / `FW_CHILDREN` | `2` / `1` | Who's flying |
-| `FW_SEAT_CLASS` | `economy` | `economy`, `premium-economy`, `business`, `first` |
-| `FW_EXCLUDE_BASIC_ECONOMY` | `true` | Drop Basic Economy — no carry-on, no seat choice, no changes |
+
+Per-watch settings live in `watches.toml`, not the environment: `origin`,
+`destinations`, `candidates`, `mode`, `stay_nights`, `max_stops`, `adults`,
+`children`, `seat_class`, `exclude_basic_economy`, `carry_on_bags`,
+`checked_bags`, `top_n`, `full_scan_interval_hours`, `proxy_adults`.
 | `FW_CARRY_ON_BAGS` | `1` | Carry-ons **per passenger** whose fees are priced in |
 | `FW_CHECKED_BAGS` | `0` | Checked bags per passenger |
 | `FW_WINDOW_START_DAYS` / `FW_WINDOW_END_DAYS` | `21` / `180` | How far ahead to look |
@@ -148,7 +199,7 @@ scan; it's off by default so you opt into publishing deliberately.
 | `FW_COOLDOWN_HOURS` | `20` | Silence after an alert |
 | `FW_REQUEST_DELAY` | `2.5` | Seconds between requests (jittered ±50%) |
 
-`FW_ORIGIN=NYC` is a metro code covering JFK, LGA and EWR in a single query.
+`origin = "NYC"` is a metro code covering JFK, LGA and EWR in a single query.
 
 ## Known limits
 
@@ -172,6 +223,16 @@ scan; it's off by default so you opt into publishing deliberately.
   the library's parser reads. **Do not replace it with `get_flights()`** — the
   scan would silently start missing every cheap fare. Covered by
   `test_both_result_lists_are_parsed`.
+- **A child in the party makes most destinations invisible.** Google defers
+  results to a client-side request when the party includes a child, and the
+  static payload the scraper reads comes back empty. Measured across 18
+  nonstop destinations: 17 returned data for 3 adults, **6** for 2 adults +
+  1 child — AMS, LIS, FCO, KEF, PTY, CUN, NAS, BGI, BOG, GRU and NRT all
+  vanished. `foreign-feb` therefore sets `proxy_adults = 3`: it scans as
+  adults for coverage and re-prices the real party once, at alert time. Where
+  both work the gap is about 1% (LHR -0.5%, CDG -0.6%, BCN -2.1%, DUB and YYZ
+  0%, MAD +8.9%). When the re-price comes back empty the alert says so rather
+  than presenting the proxy as exact.
 - **Premium economy parses badly on this route.** The scraper returned prices
   Google's own UI contradicted (a claimed $1,319 against a stated cheapest of
   $1,624). Economy, with or without Basic, matches the UI exactly. If you

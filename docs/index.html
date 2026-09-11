@@ -117,6 +117,15 @@
     box-shadow: 0 4px 14px rgba(0,0,0,.13); white-space: nowrap; color: var(--text-primary);
   }
   #tip b { font-variant-numeric: tabular-nums; }
+  .card h3 { font-size: 12px; font-weight: 600; margin: 22px 0 8px;
+             color: var(--text-secondary); text-transform: uppercase;
+             letter-spacing: 0.045em; }
+  .hero .k, .kpi .k { font-size: 11px; color: var(--text-muted);
+             text-transform: uppercase; letter-spacing: .045em; font-weight: 600; }
+  .hero .sublabel { font-size: 12px; color: var(--text-secondary); margin-top: 5px; }
+  .proxy { font-size: 12px; color: var(--text-secondary); background: var(--surface-0);
+           border: 1px solid var(--border); border-left: 3px solid var(--series-1);
+           border-radius: 6px; padding: 9px 11px; margin: 14px 0 4px; }
   .empty { color: var(--text-secondary); font-size: 13px; }
   .empty code { background: var(--surface-0); padding: 1px 5px; border-radius: 4px;
                 border: 1px solid var(--border); font-size: 12px; }
@@ -160,14 +169,13 @@ const shortDate = (iso) => {
     { month: 'short', day: 'numeric', timeZone: 'UTC' });
 };
 
-/* ---- Column chart: cheapest trip by departure date ---------------------- */
-function departureChart(rows, threshold) {
-  const W = Math.max(920, rows.length * 6), H = 260;
-  const m = { t: 12, r: 14, b: 26, l: 46 };
+/* ---- Bar chart: one bar per row (a date, or a destination) -------------- */
+function barChart(rows, id) {
+  const W = Math.max(920, rows.length * 22), H = 260;
+  const m = { t: 12, r: 14, b: 46, l: 54 };
   const iw = W - m.l - m.r, ih = H - m.t - m.b;
-
-  const prices = rows.map(r => r.price);
-  const hi = Math.max(...prices, threshold ?? 0);
+  const thresholds = rows.map(r => r.threshold).filter(v => v != null);
+  const hi = Math.max(...rows.map(r => r.price), ...thresholds, 1);
   const ticks = niceTicks(0, hi);
   const top = ticks[ticks.length - 1];
   const y = v => m.t + ih - (v / top) * ih;
@@ -175,50 +183,61 @@ function departureChart(rows, threshold) {
   const barW = Math.max(1.5, bw - 2); // 2px surface gap between bars
 
   let s = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img"
-    aria-label="Cheapest round trip by departure date">`;
+    aria-label="Cheapest round trip by ${id}">`;
   for (const t of ticks) {
     s += `<line class="gridline" x1="${m.l}" x2="${W - m.r}" y1="${y(t)}" y2="${y(t)}"/>`;
     s += `<text class="tick" x="${m.l - 8}" y="${y(t) + 3.5}" text-anchor="end">${money(t)}</text>`;
   }
-  for (let i = 0; i < rows.length; i++) {
-    const r = rows[i], cheap = threshold != null && r.price <= threshold;
+  rows.forEach((r, i) => {
+    const cheap = r.threshold != null && r.price <= r.threshold;
     const h = Math.max(1, m.t + ih - y(r.price));
     const x = m.l + i * bw + (bw - barW) / 2;
     s += `<rect x="${x.toFixed(2)}" y="${y(r.price).toFixed(2)}" width="${barW.toFixed(2)}"
       height="${h.toFixed(2)}" rx="${Math.min(2, barW / 2).toFixed(2)}"
       fill="${cheap ? 'var(--good)' : 'var(--series-1)'}"/>`;
-  }
-  if (threshold != null) {
-    s += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(threshold)}" y2="${y(threshold)}"
+  });
+
+  // One shared threshold (a single-destination watch) draws as a rule line;
+  // per-destination thresholds differ per bar, so the bar colour carries it.
+  const uniq = [...new Set(thresholds)];
+  if (uniq.length === 1) {
+    s += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(uniq[0])}" y2="${y(uniq[0])}"
       stroke="var(--text-muted)" stroke-width="2" stroke-dasharray="5 4"/>`;
   }
-  // Monthly x labels.
-  let lastMonth = '';
-  for (let i = 0; i < rows.length; i++) {
-    const mo = rows[i].depart.slice(0, 7);
-    if (mo !== lastMonth) {
-      lastMonth = mo;
-      const [yy, mm] = mo.split('-').map(Number);
-      const label = new Date(Date.UTC(yy, mm - 1, 1))
-        .toLocaleDateString('en-US', { month: 'short', timeZone: 'UTC' });
-      s += `<text class="tick" x="${(m.l + i * bw).toFixed(1)}" y="${H - 8}">${label}</text>`;
-    }
+
+  if (bw >= 16) {
+    rows.forEach((r, i) => {
+      const cx = m.l + i * bw + bw / 2;
+      s += `<text class="tick" x="${cx.toFixed(1)}" y="${H - 26}" text-anchor="end"
+        transform="rotate(-45 ${cx.toFixed(1)} ${H - 26})">${esc(r.short)}</text>`;
+    });
+  } else {
+    let last = '';
+    rows.forEach((r, i) => {
+      const key = (r.depart || '').slice(0, 7);
+      if (key && key !== last) {
+        last = key;
+        const [yy, mm] = key.split('-').map(Number);
+        const label = new Date(Date.UTC(yy, mm - 1, 1))
+          .toLocaleDateString('en-US', { month: 'short', timeZone: 'UTC' });
+        s += `<text class="tick" x="${(m.l + i * bw).toFixed(1)}" y="${H - 14}">${label}</text>`;
+      }
+    });
   }
   s += `<line class="axis" x1="${m.l}" x2="${W - m.r}" y1="${m.t + ih}" y2="${m.t + ih}"/>`;
-  // Full-height hover targets, wider than the bars themselves.
-  for (let i = 0; i < rows.length; i++) {
+  rows.forEach((r, i) => {
     s += `<rect x="${(m.l + i * bw).toFixed(2)}" y="${m.t}" width="${Math.max(bw, 4).toFixed(2)}"
       height="${ih}" fill="transparent" data-i="${i}"/>`;
-  }
+  });
   return s + '</svg>';
 }
 
 /* ---- Line chart: cheapest price observed per day ------------------------ */
-function historyChart(hist, threshold) {
-  const W = 920, H = 220, m = { t: 12, r: 14, b: 26, l: 46 };
+function historyChart(hist) {
+  const W = 920, H = 200, m = { t: 12, r: 14, b: 26, l: 54 };
   const iw = W - m.l - m.r, ih = H - m.t - m.b;
   const vals = hist.map(d => d.low);
-  const lo = Math.min(...vals), hi = Math.max(...vals, threshold ?? 0);
+  const lo = Math.min(...vals), hi = Math.max(...vals);
   const ticks = niceTicks(Math.max(0, lo - (hi - lo) * 0.2), hi);
   const top = ticks[ticks.length - 1], bot = Math.min(ticks[0], lo);
   const y = v => m.t + ih - ((v - bot) / (top - bot || 1)) * ih;
@@ -229,10 +248,6 @@ function historyChart(hist, threshold) {
   for (const t of ticks) {
     s += `<line class="gridline" x1="${m.l}" x2="${W - m.r}" y1="${y(t)}" y2="${y(t)}"/>`;
     s += `<text class="tick" x="${m.l - 8}" y="${y(t) + 3.5}" text-anchor="end">${money(t)}</text>`;
-  }
-  if (threshold != null) {
-    s += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(threshold)}" y2="${y(threshold)}"
-      stroke="var(--text-muted)" stroke-width="2" stroke-dasharray="5 4"/>`;
   }
   const d = hist.map((p, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(p.low).toFixed(1)}`).join(' ');
   s += `<path d="${d}" fill="none" stroke="var(--series-1)" stroke-width="2"
@@ -250,139 +265,145 @@ function historyChart(hist, threshold) {
     }
   });
   s += `<line class="axis" x1="${m.l}" x2="${W - m.r}" y1="${m.t + ih}" y2="${m.t + ih}"/>`;
-  s += `<line id="cross" x1="0" x2="0" y1="${m.t}" y2="${m.t + ih}"
-    stroke="var(--text-muted)" stroke-width="1" opacity="0"/>`;
-  s += `<rect id="hitzone" x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent"/>`;
-  return { svg: s + '</svg>', x, W, m, iw };
+  s += `<rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent"/>`;
+  return { svg: s + '</svg>', x, W };
 }
 
-/* ---- Render ------------------------------------------------------------- */
+const CHART_CAP = 45;
+
+function watchCard(block, index) {
+  const { route: r, summary: sm, rows, history, alerts, kind } = block;
+  const best = sm.best;
+  const perPerson = (p) => r.party_size > 1
+    ? ` &middot; ~${money(Math.round(p / r.party_size))} pp` : '';
+
+  if (!rows.length) {
+    return `<div class="card"><h2>${esc(block.name)}</h2>
+      <p class="note">${esc(r.origin)} &rarr; ${esc(r.scope)} &middot; ${esc(r.stay_label)}</p>
+      <p class="empty">No observations yet.</p></div>`;
+  }
+
+  const chartRows = (kind === 'destinations' ? rows.slice(0, CHART_CAP) : rows)
+    .map(x => ({ ...x, short: kind === 'destinations' ? x.destination : shortDate(x.depart) }));
+
+  const capNote = kind === 'destinations' && rows.length > CHART_CAP
+    ? ` (${CHART_CAP} cheapest of ${rows.length})` : '';
+
+  const proxy = r.proxy_label
+    ? `<div class="proxy">Scanned as ${esc(r.proxy_label)} &mdash; Google withholds prices
+       for ${esc(r.party_label)} on most routes. Alerts re-price your real party;
+       figures here are within about 1%.</div>` : '';
+
+  const hist = history.length > 1 ? historyChart(history) : null;
+  if (hist) window.__hist[index] = { ...hist, data: history };
+
+  return `<div class="card">
+    <h2>${esc(block.name)}</h2>
+    <p class="note">${esc(r.origin)} &rarr; ${esc(r.scope)} &middot; ${esc(r.stay_label)}
+      &middot; ${esc(r.stops_label)} &middot; ${esc(r.window)}<br>
+      ${esc(r.party_label)} &middot; ${esc(r.cabin)} &middot; ${r.carry_on_bags} carry-on each</p>
+    ${proxy}
+    <div class="hero">
+      <div>
+        <div class="k">Cheapest right now</div>
+        <div class="fig">${money(best.price)}</div>
+        <div class="sublabel">${esc(best.destination)} &middot; ${esc(best.depart)} &rarr; ${esc(best.ret)}${perPerson(best.price)}</div>
+      </div>
+      <div class="meta">
+        <div>${esc(best.airlines || 'unknown airline')}${best.stops === 0 ? ' &middot; nonstop' :
+          best.stops ? ` &middot; ${best.stops} stop${best.stops > 1 ? 's' : ''}` : ''}</div>
+        <div style="margin-top:8px"><span class="chip ${best.threshold != null && best.price <= best.threshold ? 'good' : 'hold'}">
+          ${best.threshold != null && best.price <= best.threshold ? '&#9679; alert-worthy' : '&#9675; above threshold'}</span></div>
+        ${best.booking_url ? `<a class="book" href="${esc(best.booking_url)}" target="_blank" rel="noopener">Open in Google Flights &rarr;</a>` : ''}
+      </div>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi"><div class="k">All-time low</div><div class="v">${money(sm.all_time_low)}</div></div>
+      <div class="kpi"><div class="k">Typical (p50)</div><div class="v">${money(sm.median)}</div></div>
+      <div class="kpi"><div class="k">Observations</div><div class="v">${sm.observations.toLocaleString()}</div></div>
+      <div class="kpi"><div class="k">History</div><div class="v">${sm.span_days.toFixed(1)}d</div></div>
+    </div>
+
+    <h3>Cheapest by ${kind === 'destinations' ? 'destination' : 'departure date'}${capNote}</h3>
+    <div class="legend">
+      <span><i class="swatch" style="background:var(--good)"></i> at or below its alert threshold</span>
+      <span><i class="swatch" style="background:var(--series-1)"></i> above threshold</span>
+    </div>
+    <div class="plot" data-chart="${index}">${barChart(chartRows, kind)}</div>
+
+    ${hist ? `<h3>Cheapest seen per day</h3>
+      <div class="plot" data-hist="${index}">${hist.svg}</div>` : ''}
+
+    <details><summary>View as table (${rows.length})</summary>
+      <div class="tablewrap"><table><thead><tr><th>${kind === 'destinations' ? 'Dest' : 'Depart'}</th>
+      <th>Dates</th><th class="num">Price</th><th class="num">Threshold</th><th>Airline</th></tr></thead>
+      <tbody>${rows.map(x => `<tr><td>${esc(x.destination)}</td>
+        <td>${esc(x.depart)} → ${esc(x.ret)}</td><td class="num">${money(x.price)}</td>
+        <td class="num">${money(x.threshold)}</td><td>${esc(x.airlines)}</td></tr>`).join('')}
+      </tbody></table></div></details>
+
+    ${alerts.length ? `<h3>Alerts fired</h3><table><thead><tr><th>When (UTC)</th>
+      <th>Depart</th><th class="num">Price</th><th>Sent via</th></tr></thead><tbody>
+      ${alerts.map(a => `<tr><td>${esc(a.fired_at.replace('T',' ').slice(0,16))}</td>
+        <td>${esc(a.depart_date)}</td><td class="num">${money(a.price)}</td>
+        <td>${esc(a.channels || '—')}</td></tr>`).join('')}</tbody></table>` : ''}
+    </div>`;
+}
+
 function render(d) {
   const app = document.getElementById('app');
-  const { route, summary, by_date, history, alerts } = d;
-  const best = summary.best_now;
-  const isCheap = best && summary.threshold != null && best.price <= summary.threshold;
+  window.__hist = {};
+  window.__rows = {};
 
-  const head = `<h1>${esc(route.origin)} &rarr; ${esc(route.destination)},
-    ${route.stay_nights} nights</h1>
-    <div class="sub">${esc(route.party_label || '1 adult')} &middot;
-    ${esc(route.cabin || 'economy')} &middot;
-    ${route.carry_on_bags || 0} carry-on each<br>
-    Flexible dates &middot; alerts at the
-    ${route.percentile}th percentile of the last ${route.baseline_days} days
-    &middot; last scan ${summary.last_scan ? esc(summary.last_scan.replace('T', ' ').slice(0, 16)) + ' UTC' : 'never'}</div>`;
-
-  if (!by_date.length) {
-    app.innerHTML = head + `<div class="card"><h2>No data yet</h2>
-      <p class="note">Run a scan to populate this dashboard.</p>
-      <p class="empty">Try <code>flight-watch scan --limit 5 --export docs</code> first,
-      then the full sweep.</p></div>`;
+  if (!d.watches || !d.watches.length) {
+    app.innerHTML = `<h1>flight-watch</h1><div class="card"><h2>No data yet</h2>
+      <p class="empty">Run <code>flight-watch scan --export docs</code>.</p></div>`;
     return;
   }
 
-  const hero = `<div class="card"><div class="hero">
-      <div>
-        <div class="k" style="font-size:11px;color:var(--text-muted);text-transform:uppercase;
-          letter-spacing:.045em;font-weight:600;margin-bottom:6px">Cheapest right now</div>
-        <div class="fig">${money(best.price)}</div>
-        ${route.party_size > 1 ? `<div style="font-size:12px;color:var(--text-muted);
-          margin-top:4px">total &middot; ~${money(Math.round(best.price / route.party_size))} per person</div>` : ''}
-      </div>
-      <div class="meta">
-        <div>Out <strong>${esc(best.depart)}</strong> &middot; back <strong>${esc(best.ret)}</strong></div>
-        <div>${esc(best.airlines || 'unknown airline')}${best.stops === 0 ? ' &middot; nonstop' :
-          best.stops ? ` &middot; ${best.stops} stop${best.stops > 1 ? 's' : ''}` : ''}</div>
-        <div style="margin-top:8px"><span class="chip ${isCheap ? 'good' : 'hold'}">
-          ${isCheap ? '&#9679; alert-worthy' : '&#9675; above threshold'}</span></div>
-      </div>
-    </div>
-    ${summary.booking_url ? `<a class="book" href="${esc(summary.booking_url)}"
-      target="_blank" rel="noopener">Open in Google Flights &rarr;</a>` : ''}
-    </div>`;
+  const cards = d.watches.map((b, i) => {
+    window.__rows[i] = (b.kind === 'destinations' ? b.rows.slice(0, CHART_CAP) : b.rows);
+    return watchCard(b, i);
+  }).join('');
 
-  const kpis = `<div class="kpis">
-    <div class="kpi"><div class="k">All-time low</div><div class="v">${money(summary.all_time_low)}</div></div>
-    <div class="kpi"><div class="k">Typical (p50)</div><div class="v">${money(summary.median)}</div></div>
-    <div class="kpi"><div class="k">Alert threshold</div><div class="v">${money(summary.threshold)}</div></div>
-    <div class="kpi"><div class="k">Observations</div><div class="v">${summary.observations.toLocaleString()}</div></div>
-    <div class="kpi"><div class="k">History</div><div class="v">${summary.span_days.toFixed(1)}d</div></div>
-  </div>`;
+  app.innerHTML = `<h1>flight-watch</h1>
+    <div class="sub">${d.watches.length} watch${d.watches.length > 1 ? 'es' : ''}
+      &middot; generated ${esc((d.generated_at || '').replace('T', ' ').slice(0, 16))} UTC</div>
+    ${cards}
+    <footer>Prices are what Google Flights showed at scan time and can vanish before you book.
+     Southwest never appears in Google Flights.</footer>`;
 
-  const rowsHtml = by_date.map(r => `<tr><td>${esc(r.depart)}</td><td>${esc(r.ret)}</td>
-    <td class="num">${money(r.price)}</td><td>${esc(r.airlines)}</td></tr>`).join('');
-
-  const depCard = `<div class="card">
-    <h2>Cheapest round trip by departure date</h2>
-    <p class="note">Most recent price seen for each departure date, ${route.stay_nights}-night stay.</p>
-    <div class="legend">
-      <span><i class="swatch" style="background:var(--good)"></i> at or below alert threshold</span>
-      <span><i class="swatch" style="background:var(--series-1)"></i> above threshold</span>
-      ${summary.threshold != null ? `<span><i class="dash"></i> alert threshold (${money(summary.threshold)})</span>` : ''}
-    </div>
-    <div class="plot" id="depplot">${departureChart(by_date, summary.threshold)}</div>
-    <details><summary>View as table (${by_date.length} dates)</summary>
-      <div class="tablewrap"><table><thead><tr><th>Depart</th><th>Return</th>
-      <th class="num">Price</th><th>Airline</th></tr></thead><tbody>${rowsHtml}</tbody></table></div>
-    </details></div>`;
-
-  let histCard = '';
-  if (history.length > 1) {
-    const h = historyChart(history, summary.threshold);
-    histCard = `<div class="card"><h2>Cheapest price seen per day</h2>
-      <p class="note">The lowest ${route.stay_nights}-night fare anywhere in the window, by scan day.</p>
-      ${summary.threshold != null ? `<div class="legend"><span><i class="dash"></i>
-        alert threshold (${money(summary.threshold)})</span></div>` : ''}
-      <div class="plot" id="histplot">${h.svg}</div></div>`;
-    window.__hist = { ...h, data: history };
-  }
-
-  const alertsCard = alerts.length ? `<div class="card"><h2>Alerts fired</h2>
-    <table><thead><tr><th>When (UTC)</th><th>Depart</th><th class="num">Price</th>
-    <th class="num">Threshold</th><th>Sent via</th></tr></thead><tbody>
-    ${alerts.map(a => `<tr><td>${esc(a.fired_at.replace('T', ' ').slice(0, 16))}</td>
-      <td>${esc(a.depart_date)}</td><td class="num">${money(a.price)}</td>
-      <td class="num">${money(a.threshold)}</td><td>${esc(a.channels || '—')}</td></tr>`).join('')}
-    </tbody></table></div>` : '';
-
-  app.innerHTML = head + hero + kpis + depCard + histCard + alertsCard +
-    `<footer>Prices are what Google Flights showed at scan time and can vanish before you book.
-     Southwest never appears in Google Flights &mdash; check it separately.</footer>`;
-
-  // Hover: departure bars.
-  const dep = document.querySelector('#depplot svg');
-  if (dep) {
-    dep.addEventListener('mousemove', e => {
+  document.querySelectorAll('[data-chart]').forEach(node => {
+    const idx = node.dataset.chart, rows = window.__rows[idx];
+    const svg = node.querySelector('svg');
+    svg.addEventListener('mousemove', e => {
       const t = e.target.closest('rect[data-i]');
       if (!t) return hideTip();
-      const r = by_date[+t.dataset.i];
-      const cheap = summary.threshold != null && r.price <= summary.threshold;
-      showTip(e, `<b>${money(r.price)}</b> total${route.party_size > 1 ?
-        ` &middot; ${money(Math.round(r.price / route.party_size))} pp` : ''}
-        ${cheap ? ' &nbsp;<span style="color:var(--good)">below threshold</span>' : ''}
-        <br>Out ${esc(r.depart)} &middot; back ${esc(r.ret)}
-        <br>${esc(r.airlines || 'unknown')}`);
+      const r = rows[+t.dataset.i];
+      const cheap = r.threshold != null && r.price <= r.threshold;
+      showTip(e, `<b>${money(r.price)}</b>${cheap ? ' <span style="color:var(--good)">below threshold</span>' : ''}
+        <br>${esc(r.destination)} &middot; ${esc(r.depart)} → ${esc(r.ret)}
+        <br>${esc(r.airlines || 'unknown')}${r.threshold != null ? `<br><span style="color:var(--text-secondary)">threshold ${money(r.threshold)}</span>` : ''}`);
     });
-    dep.addEventListener('mouseleave', hideTip);
-  }
+    svg.addEventListener('mouseleave', hideTip);
+  });
 
-  // Hover: history crosshair.
-  const hp = document.querySelector('#histplot svg');
-  if (hp && window.__hist) {
-    const { x, W, data } = window.__hist;
-    const cross = hp.querySelector('#cross');
-    hp.addEventListener('mousemove', e => {
-      const box = hp.getBoundingClientRect();
-      const px = ((e.clientX - box.left) / box.width) * W;
+  document.querySelectorAll('[data-hist]').forEach(node => {
+    const h = window.__hist[node.dataset.hist];
+    if (!h) return;
+    const svg = node.querySelector('svg');
+    svg.addEventListener('mousemove', e => {
+      const box = svg.getBoundingClientRect();
+      const px = ((e.clientX - box.left) / box.width) * h.W;
       let bi = 0, bd = Infinity;
-      data.forEach((_, i) => { const dd = Math.abs(x(i) - px); if (dd < bd) { bd = dd; bi = i; } });
-      const p = data[bi];
-      cross.setAttribute('x1', x(bi)); cross.setAttribute('x2', x(bi));
-      cross.setAttribute('opacity', '1');
+      h.data.forEach((_, i) => { const dd = Math.abs(h.x(i) - px); if (dd < bd) { bd = dd; bi = i; } });
+      const p = h.data[bi];
       showTip(e, `<b>${money(p.low)}</b> cheapest<br>${esc(p.day)}
-        <br><span style="color:var(--text-secondary)">avg ${money(Math.round(p.mean))} · ${p.n} dates</span>`);
+        <br><span style="color:var(--text-secondary)">avg ${money(Math.round(p.mean))} · ${p.n} prices</span>`);
     });
-    hp.addEventListener('mouseleave', () => { cross.setAttribute('opacity', '0'); hideTip(); });
-  }
+    svg.addEventListener('mouseleave', hideTip);
+  });
 }
 
 fetch('data.json', { cache: 'no-store' })
